@@ -29,6 +29,9 @@
           "...": "../blocks/accordion/_*.json#/definitions"
         },
         {
+          "...": "../blocks/batcom-button/_*.json#/definitions"
+        },
+        {
           "...": "../blocks/cards/_*.json#/definitions"
         },
         {
