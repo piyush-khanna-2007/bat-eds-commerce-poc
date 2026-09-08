@@ -1,8 +1,88 @@
-.batcom-button a {
-  display: inline-block;
+.button-block {
+  display: flex;
+  align-items: center;
+}
+
+.button-block .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 12px 24px;
-  background: black;
-  color: white;
-  text-decoration: none;
   border-radius: 4px;
+  font-weight: 600;
+  font-size: var(--body-font-size-s, 16px);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--link-color, #1473e6);
+  color: #fff;
+  border: 1px solid var(--link-color, #1473e6);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button-block .button:hover {
+  background-color: var(--link-hover-color, #0d66d0);
+  border-color: var(--link-hover-color, #0d66d0);
+}
+
+/* Secondary variant */
+.button-block .button-secondary {
+  background-color: #eee;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+.button-block .button-secondary:hover {
+  background-color: #ddd;
+}
+
+/* Link style â€” looks like a plain text link */
+.button-block .button-link {
+  background-color: transparent;
+  color: var(--link-color, #1473e6);
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.button-block .button-link:hover {
+  color: var(--link-hover-color, #0d66d0);
+  background-color: transparent;
+}
+
+/* Rewards footer link â€” compact, muted footer treatment */
+.button-block .button-rewards-footer-link {
+  background-color: transparent;
+  color: #666;
+  border: none;
+  padding: 4px 0;
+  font-weight: 400;
+  font-size: var(--body-font-size-xs, 13px);
+  text-decoration: underline;
+}
+
+.button-block .button-rewards-footer-link:hover {
+  color: #333;
+  background-color: transparent;
+}
+
+/* Icon */
+.button-block .button-icon {
+  display: inline-flex;
+  align-items: center;
+  width: 1em;
+  height: 1em;
+}
+
+.button-block .button-icon img,
+.button-block .button-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Disabled state */
+.button-block .button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
