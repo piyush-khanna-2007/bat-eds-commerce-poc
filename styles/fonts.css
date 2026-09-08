@@ -1,3 +1,20 @@
+/*
+ * VELO brand font (VeloWWangle) is proprietary and gated at the source.
+ * Source uses NO Typekit and NO Google Fonts; the shared fallback kit
+ * (cwm0xxe) contains only serif/condensed families with no geometric-sans
+ * match. Per the font-delivery cascade we fall back to the Google Fonts API
+ * with Poppins as the closest geometric-sans visual proxy. "VeloWWangle"
+ * remains the primary named family so the real font is used if ever present.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+
+/* size-adjusted local fallback to reduce layout shift for the brand font */
+@font-face {
+    font-family: poppins-fallback;
+    size-adjust: 100%;
+    src: local('Arial');
+}
+
 @font-face {
     font-family: adobe-clean;
     src: url('../fonts/adobe-clean-normal-400.woff2') format('woff2');

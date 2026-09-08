@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-08T10:10:17.964Z",
+  "sourceContext": {
+    "originUrl": "https://www.velo.com/hr/hr",
+    "originPage": "VELO Croatia homepage",
+    "blockPosition": "upper-middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "wide",
+    "purpose": "promo-teasers",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + CTA link, 3-up",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "3-up promotional teasers",
+      "navigational feature tiles with images and CTAs"
+    ],
+    "notSuitableFor": [
+      "long scrollable product lists",
+      "text-only lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/hr/hr"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-08T10:10:17.964Z"
+  }
+}

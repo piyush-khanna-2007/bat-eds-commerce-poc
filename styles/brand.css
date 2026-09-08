@@ -1,0 +1,100 @@
+/*
+ * VELO brand design tokens
+ * Extracted deterministically from https://www.velo.com/hr/hr
+ * (batcom/brands/clientlibs/velo.min.css design tokens).
+ *
+ * NOTE: This is a Commerce boilerplate where html { font-size: 62.5% }
+ * (1rem = 10px). Brand sizing is expressed in px here to stay unambiguous
+ * and independent of the 10px root. These brand tokens are ADDED alongside
+ * the existing Adobe Commerce dropin tokens in styles.css (not replacing
+ * them).
+ */
+
+:root {
+  /* ---- Brand fonts ---- */
+  --brand-heading-font-family: "VeloWWangle", poppins, poppins-fallback, sans-serif;
+  --brand-body-font-family: "VeloWWangle", poppins, poppins-fallback, sans-serif;
+  --brand-font-weight-regular: 400;
+  --brand-font-weight-medium: 500;
+  --brand-font-weight-bold: 700;
+
+  /* ---- Brand colors ---- */
+  --brand-background-color: #fff;
+  --brand-text-color: #272626;
+  --brand-heading-color: #2b2b2b;
+  --brand-heading-color-alt: #171a1c;
+  --brand-link-color: #171a1c;
+  --brand-link-hover-color: #01567e;
+  --brand-link-color-inverted: #fff;
+  --brand-link-hover-color-inverted: #fff200;
+
+  /* palette */
+  --brand-primary: #254aa2;   /* action blue */
+  --brand-dark: #01567e;      /* deep teal-blue */
+  --brand-cyan: #4dbed8;
+  --brand-yellow: #fff200;    /* accent / hover */
+  --brand-light: #e6f6f9;     /* light section bg */
+  --brand-light-alt: #e9ecf0;
+  --brand-text-inverted: #fff;
+  --brand-border-color: #d7dbe1;
+
+  /* ---- Heading type scale (mobile / desktop) ---- */
+  --brand-heading-font-size-xxl: 40px;   /* h1 mobile */
+  --brand-heading-line-height-xxl: 44px;
+  --brand-heading-font-size-xl: 32px;    /* h2 mobile */
+  --brand-heading-line-height-xl: 36px;
+  --brand-heading-font-size-l: 24px;     /* h3 mobile */
+  --brand-heading-line-height-l: 28px;
+  --brand-heading-font-size-m: 20px;     /* h4 mobile */
+  --brand-heading-line-height-m: 24px;
+  --brand-heading-font-size-s: 18px;     /* h5 mobile */
+  --brand-heading-line-height-s: 22px;
+  --brand-heading-font-size-xs: 18px;    /* h6 mobile */
+  --brand-heading-line-height-xs: 22px;
+
+  /* ---- Body type ---- */
+  --brand-body-font-size: 16px;
+  --brand-body-line-height: 22px;
+
+  /* ---- Buttons ---- */
+  --brand-button-font-size: 12px;
+  --brand-button-line-height: 16px;
+  --brand-button-font-weight: 500;
+  --brand-button-border-radius: 20px;
+  --brand-button-border-width: 2px;
+  --brand-button-padding: 10px 24px;
+
+  --brand-button-primary-bg: #254aa2;
+  --brand-button-primary-text: #fff;
+  --brand-button-primary-border: #254aa2;
+  --brand-button-primary-bg-hover: #fff200;
+  --brand-button-primary-text-hover: #171a1c;
+  --brand-button-primary-border-hover: #fff200;
+
+  --brand-button-secondary-bg: transparent;
+  --brand-button-secondary-text: #171a1c;
+  --brand-button-secondary-border: #254aa2;
+  --brand-button-secondary-bg-hover: rgb(147 164 188 / 8%);
+  --brand-button-secondary-text-hover: #171a1c;
+  --brand-button-secondary-border-hover: #171a1c;
+
+  /* ---- Layout ---- */
+  --brand-content-max-width: 1377px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --brand-heading-font-size-xxl: 56px;   /* h1 desktop */
+    --brand-heading-line-height-xxl: 60px;
+    --brand-heading-font-size-xl: 40px;    /* h2 desktop */
+    --brand-heading-line-height-xl: 44px;
+    --brand-heading-font-size-l: 32px;     /* h3 desktop */
+    --brand-heading-line-height-l: 36px;
+    --brand-heading-font-size-m: 26px;     /* h4 desktop */
+    --brand-heading-line-height-m: 30px;
+    --brand-heading-font-size-s: 20px;     /* h5 desktop */
+    --brand-heading-line-height-s: 24px;
+    --brand-heading-font-size-xs: 18px;    /* h6 desktop */
+    --brand-heading-line-height-xs: 22px;
+  }
+}

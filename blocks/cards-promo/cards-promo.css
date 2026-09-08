@@ -1,0 +1,127 @@
+/* Block: cards-promo
+ * Design migrated from https://www.velo.com/hr/hr — source variant
+ * ".batcom-teaser.batcom-teaser-stage.batcom-text-color--light" inside a
+ * 3-column columncontrol (lt4). Each card is a full-width banner image with
+ * the heading + CTA overlaid on top in white ("stage" teaser, light text).
+ *
+ * Values taken from the ARCHIVED source stylesheet
+ * (Wayback batcom-teaser.min / batcom-columncontrol.min, Aug 2026 snapshot)
+ * because the live clientlibs are bot-blocked, plus the Phase-1 brand.css
+ * tokens. Selectors target the decorated EDS DOM produced by cards-promo.js:
+ *   .cards-promo > ul > li            -> one teaser card
+ *   .cards-promo-card-image           -> the banner <picture>
+ *   .cards-promo-card-body            -> overlaid heading(s) + CTA link
+ */
+
+/* ---- Grid: 1 column mobile, 3 equal columns desktop ---- */
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px; /* home-teaser column-control gutter */
+}
+
+/* ---- Card = positioning context for the overlaid content ---- */
+.cards-promo > ul > li {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--brand-dark, #01567e);
+}
+
+/* ---- Banner image fills the card (source teaser image is ~1280x632, ~2:1) ---- */
+.cards-promo .cards-promo-card-image {
+  line-height: 0;
+}
+
+.cards-promo .cards-promo-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1280 / 632;
+  object-fit: cover;
+}
+
+/* ---- Overlaid content: absolute top-left, white text (text-color--light) ---- */
+.cards-promo .cards-promo-card-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 20px; /* calc(--content-margin / 2) on mobile */
+  color: var(--brand-text-inverted, #fff);
+}
+
+/* ---- Headings: brand h2 scale, uppercase, tight leading, white ---- */
+.cards-promo .cards-promo-card-body h2 {
+  margin: 0;
+  font-family: var(--brand-heading-font-family);
+  font-size: var(--brand-heading-font-size-xl);
+  line-height: var(--brand-heading-line-height-xl);
+  font-weight: var(--brand-font-weight-bold);
+  text-transform: uppercase;
+  color: var(--brand-text-inverted, #fff);
+}
+
+/* multiple stacked <h2> lines (e.g. "ŠTO JE" / "VELO?") read as one heading */
+.cards-promo .cards-promo-card-body h2 + h2 {
+  margin-top: 0;
+}
+
+/* ---- CTA: plain authored link styled as the source pill button.
+   text-color--light -> primary-inverted (white pill, dark text) with an
+   arrow-right glyph. Sits below the heading (source margin-top: 24px). ---- */
+.cards-promo .cards-promo-card-body p {
+  margin: 24px 0 0;
+}
+
+.cards-promo .cards-promo-card-body p a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--brand-button-padding, 10px 24px);
+  border: var(--brand-button-border-width, 2px) solid var(--brand-button-primary-text, #fff);
+  border-radius: var(--brand-button-border-radius, 20px);
+  background-color: var(--brand-text-inverted, #fff);
+  color: var(--brand-link-color, #171a1c);
+  font-family: var(--brand-body-font-family);
+  font-size: var(--brand-button-font-size, 12px);
+  line-height: var(--brand-button-line-height, 16px);
+  font-weight: var(--brand-button-font-weight, 500);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* arrow-right after the CTA label (source uses a masked arrow icon) */
+.cards-promo .cards-promo-card-body p a:any-link::after {
+  content: "";
+  width: 15px;
+  height: 12px;
+  background-color: currentcolor;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11h13.2l-4.6-4.6L14 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></svg>') no-repeat center / contain;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11h13.2l-4.6-4.6L14 5l7 7-7 7-1.4-1.4 4.6-4.6H4z"/></svg>') no-repeat center / contain;
+  flex: 0 0 auto;
+}
+
+/* hover: brand yellow accent (matches VELO primary button hover) */
+.cards-promo .cards-promo-card-body p a:any-link:hover,
+.cards-promo .cards-promo-card-body p a:any-link:focus {
+  background-color: var(--brand-yellow, #fff200);
+  border-color: var(--brand-yellow, #fff200);
+  color: var(--brand-link-color, #171a1c);
+}
+
+/* ---- Desktop: 3 equal columns, larger content padding ---- */
+@media (min-width: 900px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-promo .cards-promo-card-body {
+    padding: 40px;
+  }
+}

@@ -1,0 +1,191 @@
+/*
+ * carousel-promo
+ * Full-page-width rotating promo banner migrated from VELO (www.velo.com/hr/hr).
+ * Source is a Swiper carousel of image-only slides (1280x600 -> 32/15 aspect),
+ * shown full width, with overlaid pagination dots and prev/next arrows.
+ *
+ * NOTE: the source Swiper theme CSS (batcom-carousel / swiper clientlibs) is
+ * WAF-gated and could not be fetched directly, and the remote browser sandbox
+ * was unreachable, so pagination/arrow colors are derived to sit legibly over
+ * the banner imagery (white controls on a translucent scrim). Layout, sizing
+ * and aspect ratio are taken from the authored source markup (img 1280x600).
+ */
+
+.carousel-promo {
+  position: relative;
+}
+
+.carousel-promo .carousel-promo-slides-container {
+  position: relative;
+}
+
+.carousel-promo .carousel-promo-slides,
+.carousel-promo .carousel-promo-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-promo .carousel-promo-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-promo .carousel-promo-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-promo .carousel-promo-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+/* Slide image dictates the banner height (full image shown, source aspect 1280x600). */
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-image {
+  display: block;
+  width: 100%;
+}
+
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-image picture,
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-image picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1280 / 600;
+  object-fit: cover;
+}
+
+/*
+ * The source slides are image-only; the imported content cell is empty.
+ * decorate() still tags it .carousel-promo-slide-content, so hide it when empty
+ * to avoid an empty scrim box. (Overlay styling kept for slides that DO have text.)
+ */
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-content:empty {
+  display: none;
+}
+
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-content {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  z-index: 2;
+  margin: 24px;
+  padding: 16px 20px;
+  color: var(--brand-text-inverted);
+  background-color: rgb(23 26 28 / 55%);
+}
+
+.carousel-promo .carousel-promo-slide .carousel-promo-slide-content :is(h1, h2, h3) {
+  color: var(--brand-text-inverted);
+  margin: 0;
+}
+
+/* Pagination dots -- overlaid at bottom-center of the banner (Swiper layout). */
+.carousel-promo .carousel-promo-slide-indicators {
+  position: absolute;
+  inset-block-end: 16px;
+  inset-inline: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.carousel-promo .carousel-promo-slide-indicator {
+  pointer-events: auto;
+}
+
+.carousel-promo .carousel-promo-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 55%);
+  transition: background-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.carousel-promo .carousel-promo-slide-indicator button:disabled,
+.carousel-promo .carousel-promo-slide-indicator button:hover,
+.carousel-promo .carousel-promo-slide-indicator button:focus-visible {
+  background-color: var(--brand-text-inverted);
+  transform: scale(1.1);
+}
+
+/* Prev / next arrows -- overlaid, vertically centered on the banner. */
+.carousel-promo .carousel-promo-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-promo .carousel-promo-navigation-buttons button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(23 26 28 / 30%);
+  transition: background-color 0.2s;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.carousel-promo .carousel-promo-navigation-buttons button:hover,
+.carousel-promo .carousel-promo-navigation-buttons button:focus-visible {
+  background-color: rgb(23 26 28 / 65%);
+}
+
+.carousel-promo .carousel-promo-navigation-buttons button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--brand-text-inverted);
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-promo .carousel-promo-navigation-buttons button.slide-next::after {
+  left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media (min-width: 900px) {
+  .carousel-promo .carousel-promo-navigation-buttons {
+    left: 24px;
+    right: 24px;
+  }
+
+  .carousel-promo .carousel-promo-navigation-buttons button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .carousel-promo .carousel-promo-slide .carousel-promo-slide-content {
+    margin: 40px;
+  }
+}
