@@ -94,6 +94,44 @@
           }
         },
         {
+          "title": "BATcom Button",
+          "id": "batcom-button",
+          "model": "batcom-button",
+          "plugins": {
+            "da": {
+              "name": "batcom-button",
+              "rows": 1,
+              "columns": 6,
+              "fields": [
+                {
+                  "name": "text",
+                  "selector": "div>div:nth-child(1)"
+                },
+                {
+                  "name": "link",
+                  "selector": "div>div:nth-child(2)"
+                },
+                {
+                  "name": "icon",
+                  "selector": "div>div:nth-child(3)"
+                },
+                {
+                  "name": "accessibilityLabel",
+                  "selector": "div>div:nth-child(4)"
+                },
+                {
+                  "name": "openInNewTab",
+                  "selector": "div>div:nth-child(5)"
+                },
+                {
+                  "name": "disabled",
+                  "selector": "div>div:nth-child(6)"
+                }
+              ]
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "model": "cards",
