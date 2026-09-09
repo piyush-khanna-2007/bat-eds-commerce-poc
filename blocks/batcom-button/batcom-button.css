@@ -1,8 +1,28 @@
+/* -----------------------------------------------------------------------
+   Design tokens — override these at :root or a theme level to restyle
+   every button variant from one place.
+   ----------------------------------------------------------------------- */
 .button-block {
+  --button-primary-bg: var(--link-color, #1473e6);
+  --button-primary-bg-hover: var(--link-hover-color, #0d66d0);
+  --button-secondary-bg: #eee;
+  --button-secondary-bg-hover: #ddd;
+  --button-secondary-border: #ccc;
+  --button-secondary-text: #222;
+  --button-link-text: var(--link-color, #1473e6);
+  --button-link-text-hover: var(--link-hover-color, #0d66d0);
+  --button-rewards-text: #666;
+  --button-rewards-text-hover: #333;
+  --button-icon-left-accent: #0f9d8c;
+  --button-icon-right-accent: #7b3fe4;
+
   display: flex;
   align-items: center;
 }
 
+/* -----------------------------------------------------------------------
+   Base button — this is the "Primary" style (no class selected)
+   ----------------------------------------------------------------------- */
 .button-block .button {
   display: inline-flex;
   align-items: center;
@@ -14,59 +34,99 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  background-color: var(--link-color, #1473e6);
+  background-color: var(--button-primary-bg);
   color: #fff;
-  border: 1px solid var(--link-color, #1473e6);
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid var(--button-primary-bg);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .button-block .button:hover {
-  background-color: var(--link-hover-color, #0d66d0);
-  border-color: var(--link-hover-color, #0d66d0);
+  background-color: var(--button-primary-bg-hover);
+  border-color: var(--button-primary-bg-hover);
 }
 
-/* Secondary variant */
+/* -----------------------------------------------------------------------
+   Secondary — filled, neutral, for lower-emphasis actions
+   ----------------------------------------------------------------------- */
 .button-block .button-secondary {
-  background-color: #eee;
-  color: #222;
-  border: 1px solid #ccc;
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
 }
 
 .button-block .button-secondary:hover {
-  background-color: #ddd;
+  background-color: var(--button-secondary-bg-hover);
 }
 
-/* Link style — looks like a plain text link */
+/* -----------------------------------------------------------------------
+   Link style — no chrome at all, reads as a plain hyperlink
+   ----------------------------------------------------------------------- */
 .button-block .button-link {
   background-color: transparent;
-  color: var(--link-color, #1473e6);
+  color: var(--button-link-text);
   border: none;
   padding: 0;
+  border-radius: 0;
   text-decoration: underline;
+  font-weight: 400;
 }
 
 .button-block .button-link:hover {
-  color: var(--link-hover-color, #0d66d0);
+  color: var(--button-link-text-hover);
   background-color: transparent;
 }
 
-/* Rewards footer link — compact, muted footer treatment */
+/* -----------------------------------------------------------------------
+   Rewards footer link — compact, muted, small print treatment
+   ----------------------------------------------------------------------- */
 .button-block .button-rewards-footer-link {
   background-color: transparent;
-  color: #666;
+  color: var(--button-rewards-text);
   border: none;
   padding: 4px 0;
+  border-radius: 0;
   font-weight: 400;
   font-size: var(--body-font-size-xs, 13px);
   text-decoration: underline;
 }
 
 .button-block .button-rewards-footer-link:hover {
-  color: #333;
+  color: var(--button-rewards-text-hover);
   background-color: transparent;
 }
 
-/* Icon */
+/* -----------------------------------------------------------------------
+   Icon-left / icon-right — outlined "ghost" treatment with a colored
+   accent border so each is visually distinct from the filled variants
+   and from each other, independent of icon position.
+   ----------------------------------------------------------------------- */
+.button-block .button-icon-left {
+  background-color: transparent;
+  color: var(--button-icon-left-accent);
+  border: 1px solid var(--button-icon-left-accent);
+}
+
+.button-block .button-icon-left:hover {
+  background-color: var(--button-icon-left-accent);
+  color: #fff;
+}
+
+.button-block .button-icon-right {
+  background-color: transparent;
+  color: var(--button-icon-right-accent);
+  border: 1px solid var(--button-icon-right-accent);
+}
+
+.button-block .button-icon-right:hover {
+  background-color: var(--button-icon-right-accent);
+  color: #fff;
+}
+
+/* -----------------------------------------------------------------------
+   Icon sizing — forces any inserted image/svg down to a fixed icon size,
+   regardless of the source asset's native or attribute dimensions.
+   ----------------------------------------------------------------------- */
 .button-block .button-icon {
   display: inline-flex;
   align-items: center;
@@ -77,8 +137,6 @@
   overflow: hidden;
 }
 
-/* !important + explicit px size beats any width/height attributes EDS's
-   image optimizer adds to the <img> tag itself */
 .button-block .button-icon img,
 .button-block .button-icon svg,
 .button-block .button-icon picture {
@@ -90,9 +148,16 @@
   display: block;
 }
 
-/* Disabled state */
+/* -----------------------------------------------------------------------
+   Disabled — always renders last so it visually overrides whichever
+   other variant class is also present (e.g. "secondary, disabled")
+   ----------------------------------------------------------------------- */
 .button-block .button-disabled {
-  opacity: 0.5;
+  background-color: #f2f2f2 !important;
+  color: #999 !important;
+  border-color: #ddd !important;
+  opacity: 0.7;
   cursor: not-allowed;
   pointer-events: none;
+  text-decoration: none !important;
 }
