@@ -36,7 +36,7 @@
   background-color: #ddd;
 }
 
-/* Link style â€” looks like a plain text link */
+/* Link style — looks like a plain text link */
 .button-block .button-link {
   background-color: transparent;
   color: var(--link-color, #1473e6);
@@ -50,7 +50,7 @@
   background-color: transparent;
 }
 
-/* Rewards footer link â€” compact, muted footer treatment */
+/* Rewards footer link — compact, muted footer treatment */
 .button-block .button-rewards-footer-link {
   background-color: transparent;
   color: #666;
@@ -70,14 +70,24 @@
 .button-block .button-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: 1em;
   height: 1em;
+  flex: 0 0 auto;
+  overflow: hidden;
 }
 
+/* !important + explicit px size beats any width/height attributes EDS's
+   image optimizer adds to the <img> tag itself */
 .button-block .button-icon img,
-.button-block .button-icon svg {
-  width: 100%;
-  height: 100%;
+.button-block .button-icon svg,
+.button-block .button-icon picture {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  object-fit: contain;
+  display: block;
 }
 
 /* Disabled state */
