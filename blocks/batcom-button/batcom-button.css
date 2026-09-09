@@ -1,0 +1,218 @@
+/* -----------------------------------------------------------------------
+   Design tokens — override these at :root or a theme level to restyle
+   every button variant from one place.
+   ----------------------------------------------------------------------- */
+.block.batcom-button-block,
+[data-block-name="batcom-button"] {
+  --button-primary-bg: var(--link-color, #1473e6);
+  --button-primary-bg-hover: var(--link-hover-color, #0d66d0);
+  --button-secondary-bg: #eee;
+  --button-secondary-bg-hover: #ddd;
+  --button-secondary-border: #ccc;
+  --button-secondary-text: #222;
+  --button-link-text: var(--link-color, #1473e6);
+  --button-link-text-hover: var(--link-hover-color, #0d66d0);
+  --button-rewards-text: #666;
+  --button-rewards-text-hover: #333;
+  --button-icon-left-accent: #0f9d8c;
+  --button-icon-right-accent: #7b3fe4;
+  --button-brand-navy: #2b3a87;
+  --button-brand-navy-text: #2b3a87;
+  --button-brand-yellow: #ffd200;
+  --button-brand-yellow-text: #1a1a1a;
+
+  display: flex;
+  align-items: center;
+}
+
+/* -----------------------------------------------------------------------
+   Base button — this is the "Primary" style (no class selected)
+
+   NOTE: every rule below repeats the block-scoped selector twice
+   ([data-block-name="batcom-button"] .button.button, etc.) purely to raise
+   specificity above the site's generic global `.button` styles that
+   most EDS boilerplates apply to any bare link. Key visual properties
+   also carry !important as a second line of defense — global styles
+   sometimes ship with !important themselves. This is defensive, not
+   elegant, but it's the reliable way to guarantee this block's look
+   isn't silently overridden by unrelated site-wide CSS.
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  font-size: var(--body-font-size-s, 16px);
+  text-decoration: none !important;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--button-primary-bg) !important;
+  color: #fff !important;
+  border: 1px solid var(--button-primary-bg) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+[data-block-name="batcom-button"] .button.button:hover {
+  background-color: var(--button-primary-bg-hover) !important;
+  border-color: var(--button-primary-bg-hover) !important;
+}
+
+/* -----------------------------------------------------------------------
+   Secondary — filled, neutral, for lower-emphasis actions
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-secondary {
+  background-color: var(--button-secondary-bg) !important;
+  color: var(--button-secondary-text) !important;
+  border: 1px solid var(--button-secondary-border) !important;
+}
+
+[data-block-name="batcom-button"] .button.button-secondary:hover {
+  background-color: var(--button-secondary-bg-hover) !important;
+}
+
+/* -----------------------------------------------------------------------
+   Link style — no chrome at all, reads as a plain hyperlink
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-link {
+  background-color: transparent !important;
+  color: var(--button-link-text) !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  text-decoration: underline !important;
+  font-weight: 400 !important;
+}
+
+[data-block-name="batcom-button"] .button.button-link:hover {
+  color: var(--button-link-text-hover) !important;
+  background-color: transparent !important;
+}
+
+/* -----------------------------------------------------------------------
+   Rewards footer link — compact, muted, small print treatment
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-rewards-footer-link {
+  background-color: transparent !important;
+  color: var(--button-rewards-text) !important;
+  border: none !important;
+  padding: 4px 0 !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  font-size: var(--body-font-size-xs, 13px) !important;
+  text-decoration: underline !important;
+}
+
+[data-block-name="batcom-button"] .button.button-rewards-footer-link:hover {
+  color: var(--button-rewards-text-hover) !important;
+  background-color: transparent !important;
+}
+
+/* -----------------------------------------------------------------------
+   Icon-left / icon-right — outlined "ghost" treatment with a colored
+   accent border so each is visually distinct from the filled variants
+   and from each other, independent of icon position.
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-icon-left {
+  background-color: transparent !important;
+  color: var(--button-icon-left-accent) !important;
+  border: 1px solid var(--button-icon-left-accent) !important;
+}
+
+[data-block-name="batcom-button"] .button.button-icon-left:hover {
+  background-color: var(--button-icon-left-accent) !important;
+  color: #fff !important;
+}
+
+[data-block-name="batcom-button"] .button.button-icon-right {
+  background-color: transparent !important;
+  color: var(--button-icon-right-accent) !important;
+  border: 1px solid var(--button-icon-right-accent) !important;
+}
+
+[data-block-name="batcom-button"] .button.button-icon-right:hover {
+  background-color: var(--button-icon-right-accent) !important;
+  color: #fff !important;
+}
+
+/* -----------------------------------------------------------------------
+   Icon sizing — forces any inserted image/svg down to a fixed icon size,
+   regardless of the source asset's native or attribute dimensions.
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+[data-block-name="batcom-button"] .button-icon img,
+[data-block-name="batcom-button"] .button-icon svg,
+[data-block-name="batcom-button"] .button-icon picture {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* -----------------------------------------------------------------------
+   Disabled — always renders last so it visually overrides whichever
+   other variant class is also present (e.g. "secondary, disabled")
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-disabled {
+  background-color: #f2f2f2 !important;
+  color: #999 !important;
+  border-color: #ddd !important;
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: none !important;
+}
+
+/* -----------------------------------------------------------------------
+   Brand pill — filled navy, uppercase, turns yellow on hover.
+   Use class "brand-primary".
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-brand-primary {
+  background-color: var(--button-brand-navy) !important;
+  color: #fff !important;
+  border: 2px solid var(--button-brand-navy) !important;
+  border-radius: 999px !important;
+  padding: 16px 32px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+
+[data-block-name="batcom-button"] .button.button-brand-primary:hover {
+  background-color: var(--button-brand-yellow) !important;
+  border-color: var(--button-brand-yellow) !important;
+  color: var(--button-brand-yellow-text) !important;
+}
+
+/* -----------------------------------------------------------------------
+   Brand pill outline — transparent fill, navy border/text, matching
+   pill shape. Use class "brand-secondary".
+   ----------------------------------------------------------------------- */
+[data-block-name="batcom-button"] .button.button-brand-secondary {
+  background-color: transparent !important;
+  color: var(--button-brand-navy-text) !important;
+  border: 2px solid var(--button-brand-navy) !important;
+  border-radius: 999px !important;
+  padding: 16px 32px !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+
+[data-block-name="batcom-button"] .button.button-brand-secondary:hover {
+  background-color: var(--button-brand-navy) !important;
+  color: #fff !important;
+}
