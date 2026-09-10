@@ -41,9 +41,9 @@ const DEFAULT_THEME = 'default';
  */
 const CATEGORY_PREFIX_MAP = {
   // Button
-  'Typography: Button': 'typography-button-',
-  'Layout: Component Button': 'layout-button-',
-  'Color: Component Button': 'color-button-',
+  'Typography: Batcom Button': 'typography-button-',
+  'Layout: Batcom Button': 'layout-button-',
+  'Color: Batcom Button': 'color-button-',
   // Global foundations
   'Color: Anchor': 'color-anchor-',
   'Color: Body': 'color-body-',
