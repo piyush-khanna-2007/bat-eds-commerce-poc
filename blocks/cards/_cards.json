@@ -13,6 +13,45 @@
       }
     },
     {
+      "title": "Cards (promo)",
+      "id": "cards-promo",
+      "model": "cards",
+      "filter": "cards",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "classes": ["promo"]
+        }
+      }
+    },
+    {
+      "title": "Cards (product)",
+      "id": "cards-product",
+      "model": "cards",
+      "filter": "cards",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "classes": ["product"]
+        }
+      }
+    },
+    {
+      "title": "Cards (blog)",
+      "id": "cards-blog",
+      "model": "cards",
+      "filter": "cards",
+      "plugins": {
+        "da": {
+          "rows": 1,
+          "columns": 2,
+          "classes": ["blog"]
+        }
+      }
+    },
+    {
       "title": "Card",
       "id": "card",
       "model": "card",
