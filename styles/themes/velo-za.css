@@ -1,0 +1,503 @@
+/* =========================================================================
+   Theme: velo-za
+   Source: Batcom Theme Variable Configuration, Context Path /content/velo/za
+   Converted from AEM OSGi config to CSS custom properties. Grouped to
+   mirror the original config's Property categories. Empty categories in
+   the source config (no values configured) are omitted here.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Font faces
+   NOTE: original paths are AEM DAM paths (/content/dam/velo/fonts/...).
+   Host these font files inside this project's own repo (e.g. /fonts/)
+   and update the url() paths below accordingly before use.
+   ------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'VeloWWangle-Regular';
+  src: url('/fonts/VeloWWangle-Regular.woff2') format('woff2'),
+       url('/fonts/VeloWWangle-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VeloWWangle-Bold';
+  src: url('/fonts/VeloWWangle-Bold.woff2') format('woff2'),
+       url('/fonts/VeloWWangle-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* -----------------------------------------------------------------------
+     Color: Palette — base swatches. Everything else in this file should
+     reference these via var() wherever the source config did the same
+     (many "Color: Component X" values were defined as
+     var(--batcom-color-palette-N), preserved below).
+     ----------------------------------------------------------------------- */
+  --color-palette-1: #01567e;
+  --color-palette-1-inverted: #f1f4f8;
+  --color-palette-2: #4dbed8;
+  --color-palette-2-inverted: #e9ecf0;
+  --color-palette-3: #ffffff;
+  --color-palette-3-inverted: #d7dbe1;
+  --color-palette-4: #fff200;
+  --color-palette-4-inverted: #ffffff;
+  --color-palette-5: #e9ecfd;
+  --color-palette-5-inverted: #404040;
+  --color-palette-6: #d7dbe1;
+  --color-palette-6-inverted: #404040;
+  --color-palette-7: #e6f6f9;
+  --color-palette-7-inverted: #404040;
+  --color-palette-8: #5d5f63;
+  --color-palette-8-inverted: #ffffff;
+  --color-palette-9: #2b2b2b;
+  --color-palette-9-inverted: #ffffff;
+  --color-palette-10: #e9ecf0;
+  --color-palette-10-inverted: #ffffff;
+  --color-palette-concrete: #d7dbe1;
+  --color-palette-dark-grey: #5d5f63;
+  --color-palette-pale-grey: #e9ecf0;
+  --color-palette-system-green: #068475;
+  --color-palette-system-blue: #00819e;
+  --color-palette-mid-grey: #8f9296;
+  --color-palette-system-old-brick: #991f39;
+  --color-palette-system-light-blue: #7adee9;
+  --color-palette-whisper-grey: #f1f4f8;
+  --color-palette-charcoal: #2b2b2b;
+
+  /* -----------------------------------------------------------------------
+     Color: Anchor
+     ----------------------------------------------------------------------- */
+  --color-anchor-default: #2b2b2b;
+  --color-anchor-hover: #01567e;
+  --color-anchor-inverted: #ffffff;
+  --color-anchor-hover-inverted: #fff200;
+
+  /* -----------------------------------------------------------------------
+     Color: Body
+     ----------------------------------------------------------------------- */
+  --color-body-text: #5d5f63;
+  --color-body-text-inverted: #ffffff;
+
+  /* -----------------------------------------------------------------------
+     Color: Heading
+     ----------------------------------------------------------------------- */
+  --color-heading-h1: #2b2b2b;
+  --color-heading-h1-inverted: #fff200;
+  --color-heading-h2: #2b2b2b;
+  --color-heading-h2-inverted: #fff200;
+  --color-heading-h3: #2b2b2b;
+  --color-heading-h3-inverted: var(--color-palette-1-inverted);
+  --color-heading-h4: #2b2b2b;
+  --color-heading-h4-inverted: var(--color-palette-4-inverted);
+  --color-heading-h5: #2b2b2b;
+  --color-heading-h5-inverted: var(--color-palette-4-inverted);
+  --color-heading-h6: #2b2b2b;
+  --color-heading-h6-inverted: #ffffff;
+
+  /* -----------------------------------------------------------------------
+     Color: Component Button
+     This is the canonical source for the batcom-button block's colors.
+     ----------------------------------------------------------------------- */
+  --color-button-primary-bg: #254aa2;
+  --color-button-primary-bg-hover: #fff200;
+  --color-button-primary-bg-inverted: #ffffff;
+  --color-button-primary-bg-hover-inverted: #fff200;
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-text-hover: #2b2b2b;
+  --color-button-primary-text-inverted: #2b2b2b;
+  --color-button-primary-text-hover-inverted: #2b2b2b;
+  --color-button-primary-border: #254aa2;
+  --color-button-primary-border-hover: #fff200;
+  --color-button-primary-border-inverted: #ffffff;
+  --color-button-primary-border-hover-inverted: #fff200;
+
+  --color-button-secondary-bg: transparent;
+  --color-button-secondary-bg-hover: transparent;
+  --color-button-secondary-bg-inverted: transparent;
+  --color-button-secondary-bg-hover-inverted: transparent;
+  --color-button-secondary-text: #2b2b2b;
+  --color-button-secondary-text-hover: #2b2b2b;
+  --color-button-secondary-text-inverted: #ffffff;
+  --color-button-secondary-text-hover-inverted: #fff200;
+  --color-button-secondary-border: #254aa2;
+  --color-button-secondary-border-hover: #01567e;
+  --color-button-secondary-border-inverted: #ffffff;
+  --color-button-secondary-border-hover-inverted: #fff200;
+
+  --color-button-link-text: #2b2b2b;
+  --color-button-link-text-hover: #01567e;
+  --color-button-link-text-inverted: #ffffff;
+  --color-button-link-text-hover-inverted: #fff200;
+
+  --color-button-disabled-bg: #e9ecf0;
+  --color-button-disabled-bg-hover: #e9ecf0;
+  --color-button-disabled-bg-inverted: #8f9296;
+  --color-button-disabled-bg-hover-inverted: #8f9296;
+  --color-button-disabled-text: #5d5f63;
+  --color-button-disabled-text-hover: #5d5f63;
+  --color-button-disabled-text-inverted: #ffffff;
+  --color-button-disabled-text-hover-inverted: #ffffff;
+  --color-button-disabled-border: #e9ecf0;
+  --color-button-disabled-border-hover: #e9ecf0;
+  --color-button-disabled-border-inverted: #8f9296;
+  --color-button-disabled-border-hover-inverted: #8f9296;
+
+  /* -----------------------------------------------------------------------
+     Color: Component Age Gate (transparent button treatment, used over
+     the gradient/image background on the age verification screen)
+     ----------------------------------------------------------------------- */
+  --color-agegate-bg: #4dbed8;
+  --color-agegate-bg-gradient: linear-gradient(31.2deg, #01567E 31.93%, #00BED5 83.94%, #7ADEE9 139.31%);
+  --color-agegate-heading: #fff;
+  --color-agegate-footnote: #fff;
+  --color-agegate-text: #fff;
+  --color-agegate-button-primary-bg: #FFF200;
+  --color-agegate-button-primary-bg-hover: #FFF200;
+  --color-agegate-button-primary-text: #000000;
+  --color-agegate-button-primary-text-hover: #171A1C;
+  --color-agegate-button-primary-border: #FFF200;
+  --color-agegate-button-primary-border-hover: #FFF200;
+  --color-agegate-button-primary-icon: #000000;
+  --color-agegate-button-primary-icon-hover: #000000;
+  --color-agegate-button-secondary-bg: transparent;
+  --color-agegate-button-secondary-bg-hover: transparent;
+  --color-agegate-button-secondary-text: #FFF200;
+  --color-agegate-button-secondary-text-hover: #FFF200;
+  --color-agegate-button-secondary-border: #FFF200;
+  --color-agegate-button-secondary-border-hover: #FFF200;
+  --color-agegate-button-secondary-icon: #FFF200;
+  --color-agegate-button-secondary-icon-hover: #FFF200;
+
+  /* -----------------------------------------------------------------------
+     Color: other components (defined for future block work)
+     ----------------------------------------------------------------------- */
+  --color-accordion-title: #2b2b2b;
+  --color-accordion-title-hover: #2b2b2b;
+  --color-accordion-title-expanded: #2b2b2b;
+  --color-accordion-title-inverted: #ffffff;
+  --color-accordion-title-hover-inverted: #ffffff;
+  --color-accordion-title-expanded-inverted: #ffffff;
+  --color-accordion-bg: transparent;
+  --color-accordion-bg-hover: transparent;
+  --color-accordion-bg-expanded: transparent;
+  --color-accordion-bg-inverted: transparent;
+  --color-accordion-bg-hover-inverted: transparent;
+  --color-accordion-bg-expanded-inverted: transparent;
+  --color-accordion-test: #cccccc;
+
+  --color-backtotop-button: var(--color-palette-1);
+  --color-backtotop-button-hover: var(--color-palette-2);
+
+  --color-breadcrumb-default: var(--color-palette-4);
+  --color-breadcrumb-default-inverted: var(--color-palette-4-inverted);
+  --color-breadcrumb-hover: var(--color-palette-3);
+  --color-breadcrumb-hover-inverted: var(--color-palette-3-inverted);
+  --color-breadcrumb-active: var(--color-palette-1);
+  --color-breadcrumb-active-inverted: var(--color-palette-1-inverted);
+
+  --color-carousel-button: #fff200;
+  --color-carousel-button-inverted: #fff200;
+  --color-carousel-indicator: #ffffff;
+  --color-carousel-indicator-inverted: #ffffff;
+  --color-carousel-indicator-active: #ffffff;
+  --color-carousel-indicator-active-inverted: #ffffff;
+
+  --color-container-primary-dark-bg: #01567e;
+  --color-container-primary-light-bg: #e6f6f9;
+  --color-container-secondary-dark-bg: #00819E;
+  --color-container-secondary-light-bg: #ffffff;
+  --color-container-tertiary-dark-bg: #7ADEE9;
+  --color-container-tertiary-light-bg: #7ADEE9;
+  --color-container-gradient-bg-1: linear-gradient(31.2deg, #01567E 31.93%, #00BED5 83.94%, #7ADEE9 139.31%);
+
+  --color-content-stream-title: var(--color-palette-4);
+  --color-content-stream-title-inverted: var(--color-palette-4-inverted);
+  --color-content-stream-description: var(--color-palette-4);
+  --color-content-stream-description-inverted: var(--color-palette-4-inverted);
+  --color-content-stream-pinned: var(--color-palette-4);
+  --color-content-stream-pinned-inverted: var(--color-palette-4-inverted);
+  --color-content-stream-border: var(--color-palette-6);
+  --color-content-stream-border-inverted: var(--color-palette-6-inverted);
+
+  --color-form-text: #2B2B2B;
+  --color-form-text-inverted: #ffffff;
+  --color-form-border: #2B2B2B;
+  --color-form-border-inverted: #ffffff;
+  --color-form-input: #F1F4F8;
+  --color-form-input-inverted: rgba(255, 255, 255, 0.15);
+  --color-form-input-light-bg: #fff;
+  --color-form-placeholder: #5D5F63;
+  --color-form-placeholder-inverted: #D7DBE1;
+  --color-form-help-text: #5D5F63;
+  --color-form-help-text-inverted: #ffffff;
+  --color-form-error: #991F39;
+  --color-form-error-inverted: #f4f4f5;
+  --color-form-select-input: #F1F4F8;
+  --color-form-select-input-inverted: rgba(255, 255, 255, 0.15);
+  --color-form-select-input-light-bg: #ffffff;
+  --color-form-select-border: #2B2B2B;
+  --color-form-textarea-border: #2B2B2B;
+
+  --color-header-anchor: #2b2b2b;
+  --color-header-anchor-inverted: #ffffff;
+  --color-header-anchor-hover: #01567e;
+  --color-header-anchor-hover-inverted: #fff200;
+  --color-header-border: var(--color-palette-6);
+  --color-header-border-inverted: transparent;
+
+  --color-language-nav-text: var(--color-palette-4);
+  --color-language-nav-text-inverted: var(--color-palette-4-inverted);
+  --color-language-nav-text-hover: var(--color-palette-3);
+  --color-language-nav-text-hover-inverted: var(--color-palette-5);
+  --color-language-nav-button: var(--color-palette-4);
+  --color-language-nav-button-inverted: var(--color-palette-4-inverted);
+  --color-language-nav-button-hover: var(--color-palette-3);
+  --color-language-nav-button-hover-inverted: var(--color-palette-5);
+  --color-language-nav-bg: var(--color-palette-7);
+  --color-language-nav-border: var(--color-palette-6);
+  --color-language-nav-border-inverted: var(--color-palette-7);
+  --color-language-nav-globe-icon: var(--color-palette-4);
+  --color-language-nav-globe-icon-inverted: var(--color-palette-4-inverted);
+
+  --color-linklist-title: var(--color-palette-1);
+  --color-linklist-title-inverted: var(--color-palette-1-inverted);
+  --color-linklist-text: var(--color-palette-4);
+  --color-linklist-text-inverted: var(--color-palette-4-inverted);
+  --color-linklist-item-link: var(--color-palette-4);
+  --color-linklist-item-link-hover: var(--color-palette-2);
+  --color-linklist-item-link-inverted: var(--color-palette-7);
+  --color-linklist-item-link-hover-inverted: var(--color-palette-7);
+
+  --color-list-item-title: var(--color-palette-1);
+  --color-list-item-title-inverted: var(--color-palette-1-inverted);
+  --color-list-item-text: var(--color-palette-4);
+  --color-list-item-text-inverted: var(--color-palette-4-inverted);
+  --color-list-border: var(--color-palette-6);
+  --color-list-border-inverted: var(--color-palette-6-inverted);
+  --color-list-tag-border: var(--color-palette-5);
+  --color-list-tag-border-inverted: var(--color-palette-7);
+  --color-list-tag-border-active: var(--color-palette-4);
+  --color-list-tag-border-active-inverted: var(--color-palette-4);
+
+  --color-navigation-bg: var(--color-palette-1);
+  --color-navigation-bg-desktop: var(--color-palette-7);
+  --color-navigation-text: #ffffff;
+  --color-navigation-text-desktop: #2b2b2b;
+  --color-navigation-text-hover: var(--color-palette-5);
+  --color-navigation-text-desktop-hover: var(--color-palette-1);
+  --color-navigation-text-inverted: var(--color-palette-7-inverted);
+  --color-navigation-text-hover-inverted: var(--color-palette-1);
+  --color-navigation-border-desktop: var(--color-palette-6);
+  --color-navigation-border-bottom-l0-desktop: var(--color-palette-1);
+  --color-navigation-border-bottom-l0-desktop-inverted: transparent;
+  --color-navigation-burger-menu-icon: #2b2b2b;
+  --color-navigation-burger-menu-icon-inverted: var(--color-palette-4-inverted);
+
+  --color-product-gallery-thumb-img-bg: #F1F4F8;
+  --color-product-gallery-thumb-active: #296BBF;
+
+  --color-progressbar-bg: var(--color-palette-5);
+  --color-progressbar-bg-inverted: var(--color-palette-5-inverted);
+  --color-progressbar-bg-inverted-variation: var(--color-palette-1-inverted);
+  --color-progressbar-completed: var(--color-palette-1);
+  --color-progressbar-completed-inverted: var(--color-palette-1-inverted);
+  --color-progressbar-completed-percentage: var(--color-palette-7);
+  --color-progressbar-completed-percentage-inverted: var(--color-palette-7-inverted);
+
+  --color-search-text: var(--color-palette-3);
+  --color-search-text-inverted: var(--color-palette-3-inverted);
+  --color-search-link: var(--color-palette-3);
+  --color-search-link-inverted: var(--color-palette-5-inverted);
+  --color-search-icon: var(--color-palette-3);
+  --color-search-icon-inverted: var(--color-palette-3-inverted);
+  --color-search-border: var(--color-palette-6);
+  --color-search-border-inverted: var(--color-palette-6-inverted);
+  --color-search-bg: var(--color-palette-7);
+  --color-search-box-shadow: 0.25;
+  --color-search-box-shadow-inverted: 0.75;
+
+  --color-separator-default-bg: #d7dbe1;
+  --color-separator-default-bg-inverted: #d7dbe1;
+
+  --color-social-title: #2B2B2B;
+  --color-social-title-inverted: #ffffff;
+  --color-social-icon-inverted: #ffffff;
+  --color-social-icon-hover: #fff200;
+  --color-social-icon-hover-inverted: #fff200;
+
+  --color-misc-li-number: var(--color-palette-1);
+  --color-misc-li-number-inverted: var(--color-palette-1-inverted);
+  --color-misc-li-bullet: var(--color-palette-8);
+  --color-misc-li-bullet-inverted: var(--color-palette-8-inverted);
+  --color-misc-border: var(--color-palette-6);
+  --color-misc-border-inverted: var(--color-palette-6-inverted);
+
+  /* -----------------------------------------------------------------------
+     Typography weight aliases
+     ----------------------------------------------------------------------- */
+  --typography-weight-normal: normal;
+  --typography-weight-lighter: lighter;
+  --typography-weight-bold: bold;
+
+  /* -----------------------------------------------------------------------
+     Typography: Body
+     ----------------------------------------------------------------------- */
+  --typography-body-family: 'VeloWWangle-Regular';
+  --typography-body-weight: normal;
+  --typography-body-base-size: 16px;
+  --typography-body-size-mobile: 1rem;
+  --typography-body-size-tablet: 1rem;
+  --typography-body-size-desktop: 1rem;
+  --typography-body-line-height-mobile: 1.5rem;
+  --typography-body-line-height-tablet: 1.5rem;
+  --typography-body-line-height-desktop: 1.5rem;
+
+  /* -----------------------------------------------------------------------
+     Typography: Heading H1–H6
+     ----------------------------------------------------------------------- */
+  --typography-h1-family: 'VeloWWangle-Bold';
+  --typography-h1-weight: bold;
+  --typography-h1-size-mobile: 2.125rem;
+  --typography-h1-size-tablet: 2.125rem;
+  --typography-h1-size-desktop: 2.75rem;
+  --typography-h1-line-height-mobile: 2.125rem;
+  --typography-h1-line-height-tablet: 2.125rem;
+  --typography-h1-line-height-desktop: 3rem;
+
+  --typography-h2-family: 'VeloWWangle-Bold';
+  --typography-h2-weight: bold;
+  --typography-h2-size-mobile: 1.375rem;
+  --typography-h2-size-tablet: 1.375rem;
+  --typography-h2-size-desktop: 1.625rem;
+  --typography-h2-line-height-mobile: 1.5rem;
+  --typography-h2-line-height-tablet: 1.5rem;
+  --typography-h2-line-height-desktop: 1.875rem;
+
+  --typography-h3-family: 'VeloWWangle-Bold';
+  --typography-h3-weight: 500;
+  --typography-h3-size-mobile: 1.06rem;
+  --typography-h3-size-tablet: 1.06rem;
+  --typography-h3-size-desktop: 1.125rem;
+  --typography-h3-line-height-mobile: 1.25rem;
+  --typography-h3-line-height-tablet: 1.25rem;
+  --typography-h3-line-height-desktop: 1.375rem;
+
+  --typography-h4-family: 'VeloWWangle-Bold';
+  --typography-h4-weight: 500;
+  --typography-h4-size-mobile: 1.06rem;
+  --typography-h4-size-tablet: 1.06rem;
+  --typography-h4-size-desktop: 1.125rem;
+  --typography-h4-line-height-mobile: 1.25rem;
+  --typography-h4-line-height-tablet: 1.25rem;
+  --typography-h4-line-height-desktop: 1.375rem;
+
+  --typography-h5-family: 'VeloWWangle-Bold';
+  --typography-h5-weight: 500;
+  --typography-h5-size-mobile: 0.75rem;
+  --typography-h5-size-tablet: 0.75rem;
+  --typography-h5-size-desktop: 0.75rem;
+  --typography-h5-line-height-mobile: 1rem;
+  --typography-h5-line-height-tablet: 1rem;
+  --typography-h5-line-height-desktop: 1rem;
+
+  --typography-h6-family: 'VeloWWangle-Regular';
+  --typography-h6-weight: normal;
+  --typography-h6-size-mobile: 0.875rem;
+  --typography-h6-size-tablet: 0.875rem;
+  --typography-h6-size-desktop: 0.875rem;
+  --typography-h6-line-height-mobile: 1.375rem;
+  --typography-h6-line-height-tablet: 1.375rem;
+  --typography-h6-line-height-desktop: 1.375rem;
+
+  /* -----------------------------------------------------------------------
+     Typography: anchor (this is the "Button Font" category — same
+     family/weight/size/line-height used by the batcom-button block)
+     ----------------------------------------------------------------------- */
+  --typography-button-family: 'VeloWWangle-Regular';
+  --typography-button-weight: 700;
+  --typography-button-base-size: 12px;
+  --typography-button-size-mobile: 0.75rem;
+  --typography-button-size-tablet: 0.75rem;
+  --typography-button-size-desktop: 0.75rem;
+  --typography-button-line-height-mobile: 1.25rem;
+  --typography-button-line-height-tablet: 1.25rem;
+  --typography-button-line-height-desktop: 1.25rem;
+
+  /* -----------------------------------------------------------------------
+     Typography: Quote / Small / xSmall
+     ----------------------------------------------------------------------- */
+  --typography-quote-family: 'VeloWWangle-Regular';
+  --typography-quote-weight: var(--typography-weight-normal);
+  --typography-quote-size-mobile: 1.125rem;
+  --typography-quote-size-tablet: 1.125rem;
+  --typography-quote-size-desktop: 1.25rem;
+  --typography-quote-line-height-mobile: 1.5rem;
+  --typography-quote-line-height-tablet: 1.5rem;
+  --typography-quote-line-height-desktop: 1.75rem;
+
+  --typography-small-family: 'VeloWWangle-Regular';
+  --typography-small-weight: normal;
+  --typography-small-size-mobile: 0.75rem;
+  --typography-small-size-tablet: 0.75rem;
+  --typography-small-size-desktop: 0.75rem;
+  --typography-small-line-height-mobile: 1.25rem;
+  --typography-small-line-height-tablet: 1.25rem;
+  --typography-small-line-height-desktop: 1.25rem;
+
+  --typography-xsmall-family: 'VeloWWangle-Regular';
+  --typography-xsmall-weight: normal;
+  --typography-xsmall-size-mobile: 0.75rem;
+  --typography-xsmall-size-tablet: 0.75rem;
+  --typography-xsmall-size-desktop: 0.75rem;
+  --typography-xsmall-line-height-mobile: 1.125rem;
+  --typography-xsmall-line-height-tablet: 1.125rem;
+  --typography-xsmall-line-height-desktop: 1.125rem;
+
+  /* -----------------------------------------------------------------------
+     Layout: Content / Spacing / Container / Column Control / Navigation
+     ----------------------------------------------------------------------- */
+  --layout-content-max-width: 1200px;
+  --layout-content-left-right-margin: 40px;
+
+  --layout-spacing-bottom-small-mobile: 16px;
+  --layout-spacing-bottom-small-tablet: 20px;
+  --layout-spacing-bottom-small-desktop: 32px;
+  --layout-spacing-bottom-large-mobile: 20px;
+  --layout-spacing-bottom-large-tablet: 40px;
+  --layout-spacing-bottom-large-desktop: 62px;
+  --layout-spacing-between-components-mobile: 32px;
+  --layout-spacing-between-components-tablet: 32px;
+  --layout-spacing-between-components-desktop: 0px;
+
+  --layout-container-padding-mobile: 20px;
+  --layout-container-padding-desktop: 20px;
+  --layout-container-sticky-height-top-mobile: 96px;
+  --layout-container-sticky-height-top-tablet: 0px;
+  --layout-container-sticky-height-top-desktop: 350px;
+  --layout-container-sticky-height-bottom-mobile: 96px;
+  --layout-container-sticky-height-bottom-tablet: 72px;
+  --layout-container-sticky-height-bottom-desktop: 72px;
+
+  --layout-column-control-gutter: 4px;
+  --layout-column-control-small-height-mobile: 0px;
+  --layout-column-control-small-height-desktop: 255px;
+  --layout-column-control-medium-height-mobile: 456px;
+  --layout-column-control-medium-height-desktop: 532px;
+  --layout-column-control-large-height-mobile: 750px;
+  --layout-column-control-large-height-desktop: 1000px;
+
+  --layout-navigation-arrow-position-mobile: 12px;
+
+  /* -----------------------------------------------------------------------
+     Layout: Component Button — pill shape, this is what makes VELO
+     buttons fully rounded rather than the 4px radius used previously.
+     ----------------------------------------------------------------------- */
+  --layout-button-border-width: 2px;
+  --layout-button-primary-border-radius: 20px;
+  --layout-button-secondary-border-radius: 20px;
+  --layout-button-disabled-border-radius: 20px;
+}
