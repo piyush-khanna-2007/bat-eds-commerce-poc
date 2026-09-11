@@ -1,0 +1,62 @@
+/*
+ * columns-banner
+ * Source: https://www.velo.com/hr/hr  (batcom columncontrol, grid--lt2 = 2 equal columns)
+ * Real imported DOM (source of truth, content/hr/hr.plain.html):
+ *   .columns-banner > div (row)
+ *     > div  -> <h1> heading  ("VELO NIKOTINSKE VREĆICE")
+ *     > div  -> intro body text
+ * Two-up intro/promo: large bold heading beside a descriptive paragraph.
+ *
+ * Values reuse Phase 1 brand tokens (styles/brand.css). The source component
+ * clientlibs (batcom-columncontrol / batcom-text) are gated (404 to public),
+ * so exact computed values were not extractable; layout is derived from the
+ * source columncontrol 2-column pattern + established brand type/spacing tokens.
+ */
+
+/* Row: mobile-first stacked (heading, then text). */
+.columns-banner > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+/* Cell reset so flex/align controls spacing, not heading margins. */
+.columns-banner > div > div {
+  margin: 0;
+}
+
+/* Heading cell */
+.columns-banner h1 {
+  margin: 0;
+  color: var(--brand-heading-color);
+  font-family: var(--brand-heading-font-family);
+  font-weight: var(--brand-font-weight-bold);
+  font-size: var(--brand-heading-font-size-xxl);
+  line-height: var(--brand-heading-line-height-xxl);
+}
+
+/* Text cell (second column) */
+.columns-banner > div > div:last-child {
+  color: var(--brand-text-color);
+  font-family: var(--brand-body-font-family);
+  font-size: var(--brand-body-font-size);
+  line-height: var(--brand-body-line-height);
+  font-weight: var(--brand-font-weight-regular);
+}
+
+.columns-banner p {
+  margin: 0;
+}
+
+/* Desktop: two equal columns, vertically centred. */
+@media (width >= 900px) {
+  .columns-banner > div {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xbig);
+  }
+
+  .columns-banner > div > div {
+    flex: 1;
+  }
+}

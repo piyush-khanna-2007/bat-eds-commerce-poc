@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -146,11 +148,13 @@ html {
 }
 
 body {
-  font: var(--type-body-1-default-font);
-  letter-spacing: var(--type-body-1-default-letter-spacing);
   margin: 0;
-  color: var(--color-neutral-800);
-  background-color: var(--background-color);
+  color: var(--brand-text-color);
+  background-color: var(--brand-background-color);
+  font-family: var(--brand-body-font-family);
+  font-size: var(--brand-body-font-size);
+  font-weight: var(--brand-font-weight-regular);
+  line-height: var(--brand-body-line-height);
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
@@ -192,38 +196,41 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  line-height: 1.25;
+  font-family: var(--brand-heading-font-family);
+  font-weight: var(--brand-font-weight-bold);
+  color: var(--brand-heading-color);
   scroll-margin: 40px;
 }
 
 h1 {
-  font: var(--type-display-1-font);
-  letter-spacing: var(--type-display-1-letter-spacing);
+  font-size: var(--brand-heading-font-size-xxl);
+  line-height: var(--brand-heading-line-height-xxl);
 }
 
 h2 {
-  font: var(--type-display-2-font);
-  letter-spacing: var(--type-display-2-letter-spacing);
+  font-size: var(--brand-heading-font-size-xl);
+  line-height: var(--brand-heading-line-height-xl);
+  color: var(--brand-heading-color-alt);
 }
 
 h3 {
-  font: var(--type-display-3-font);
-  letter-spacing: var(--type-display-3-letter-spacing);
+  font-size: var(--brand-heading-font-size-l);
+  line-height: var(--brand-heading-line-height-l);
 }
 
 h4 {
-  font: var(--type-headline-1-font);
-  letter-spacing: var(--type-headline-1-letter-spacing);
+  font-size: var(--brand-heading-font-size-m);
+  line-height: var(--brand-heading-line-height-m);
 }
 
 h5 {
-  font: var(--type-headline-2-strong-font);
-  letter-spacing: var(--type-headline-2-strong-letter-spacing);
+  font-size: var(--brand-heading-font-size-s);
+  line-height: var(--brand-heading-line-height-s);
 }
 
 h6 {
-  font: var(--type-headline-2-default-font);
-  letter-spacing: var(--type-headline-2-default-letter-spacing);
+  font-size: var(--brand-heading-font-size-xs);
+  line-height: var(--brand-heading-line-height-xs);
 }
 
 p,
@@ -275,16 +282,16 @@ button {
 
 /* links */
 a:not(.dropin-design a) {
-  color: var(--color-brand-500);
-  font: var(--type-body-1-strong-font);
-  letter-spacing: var(--type-body-1-strong-letter-spacing);
+  color: var(--brand-link-color);
+  font-family: var(--brand-body-font-family);
+  font-weight: var(--brand-font-weight-medium);
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 a:not(.dropin-design a):hover {
-  color: var(--color-brand-600);
-  text-decoration: underline;
+  color: var(--brand-link-hover-color);
+  text-decoration: none;
 }
 
 /* buttons */
@@ -300,18 +307,21 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: var(--shape-border-width-3) solid transparent;
-  border-radius: var(--shape-border-radius-3);
-  padding: 0.5em 1.2em;
-  font: var(--type-button-2-font);
-  letter-spacing: var(--type-button-2-letter-spacing);
+  border: var(--brand-button-border-width) solid var(--brand-button-primary-border);
+  border-radius: var(--brand-button-border-radius);
+  padding: var(--brand-button-padding);
+  font-family: var(--brand-body-font-family);
+  font-size: var(--brand-button-font-size);
+  line-height: var(--brand-button-line-height);
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: var(--brand-button-font-weight);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   text-decoration: none;
-  background-color: var(--color-brand-500);
-  color: var(--color-neutral-50);
+  background-color: var(--brand-button-primary-bg);
+  color: var(--brand-button-primary-text);
   cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -327,7 +337,9 @@ main a.button:hover,
 main a.button:focus,
 button.button:hover,
 button.button:focus {
-  background-color: var(--color-brand-600);
+  background-color: var(--brand-button-primary-bg-hover);
+  border-color: var(--brand-button-primary-border-hover);
+  color: var(--brand-button-primary-text-hover);
   cursor: pointer;
 }
 
@@ -340,17 +352,18 @@ button.button:disabled:hover {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--color-brand-500);
-  background-color: var(--color-brand-500);
-  color: var(--color-neutral-50);
+  border-color: var(--brand-button-primary-border);
+  background-color: var(--brand-button-primary-bg);
+  color: var(--brand-button-primary-text);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--color-brand-600);
-  background-color: var(--color-brand-600);
+  border-color: var(--brand-button-primary-border-hover);
+  background-color: var(--brand-button-primary-bg-hover);
+  color: var(--brand-button-primary-text-hover);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -366,21 +379,52 @@ button.button.primary:disabled:focus-visible {
 
 main a.button.secondary,
 button.button.secondary {
-  background-color: unset;
-  border: var(--shape-border-width-3) solid currentcolor;
-  color: var(--color-brand-500);
+  background-color: var(--brand-button-secondary-bg);
+  border: var(--brand-button-border-width) solid var(--brand-button-secondary-border);
+  color: var(--brand-button-secondary-text);
 }
 
 main a.button.secondary:hover,
 main a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  color: var(--color-brand-600);
+  background-color: var(--brand-button-secondary-bg-hover);
+  border-color: var(--brand-button-secondary-border-hover);
+  color: var(--brand-button-secondary-text-hover);
 }
 
 
 main input:hover {
   border: var(--shape-border-width-1) solid var(--color-neutral-700);
+}
+
+/* form elements */
+main input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"]),
+main textarea,
+main select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: var(--shape-border-width-1) solid var(--brand-border-color);
+  border-radius: var(--shape-border-radius-1);
+  font-family: var(--brand-body-font-family);
+  font-size: var(--brand-body-font-size);
+  line-height: var(--brand-body-line-height);
+  color: var(--brand-text-color);
+  background-color: var(--brand-background-color);
+}
+
+main input:focus,
+main textarea:focus,
+main select:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+}
+
+main input::placeholder,
+main textarea::placeholder {
+  color: var(--color-neutral-600);
 }
 
 main blockquote {
@@ -406,25 +450,26 @@ a.button.secondary[aria-disabled="true"]:focus-visible,
 button.button.secondary:disabled,
 button.button.secondary:disabled:hover,
 button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--brand-light-alt);
+  border-color: var(--brand-light-alt);
+  color: var(--brand-text-color);
 }
 
-/* high-impact call-to-action */
+/* high-impact call-to-action (VELO accent: yellow) */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  border-color: var(--brand-yellow);
+  background-color: var(--brand-yellow);
+  color: var(--brand-heading-color-alt);
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: var(--brand-dark);
+  background-color: var(--brand-dark);
+  color: var(--brand-text-inverted);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -433,9 +478,9 @@ a.button.accent[aria-disabled="true"]:focus-visible,
 button.button.accent:disabled,
 button.button.accent:disabled:hover,
 button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--brand-light-alt);
+  border-color: var(--brand-light-alt);
+  color: var(--brand-text-color);
 }
 
 main img {
@@ -483,9 +528,34 @@ main > .section:first-of-type {
 /* section metadata - styles - start */
 main .section.light,
 main .section.highlight {
-  background-color: var(--color-neutral-100);
+  background-color: var(--brand-light);
   margin: 0;
   padding: var(--spacing-xbig) 0;
+}
+
+/* dark section variant (VELO deep teal-blue) */
+main .section.dark {
+  background-color: var(--brand-dark);
+  color: var(--brand-text-inverted);
+  margin: 0;
+  padding: var(--spacing-xbig) 0;
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--brand-text-inverted);
+}
+
+main .section.dark a:not(.dropin-design a):not(.button) {
+  color: var(--brand-link-color-inverted);
+}
+
+main .section.dark a:not(.dropin-design a):not(.button):hover {
+  color: var(--brand-link-hover-color-inverted);
 }
 
 main .section[data-padding="default"] {

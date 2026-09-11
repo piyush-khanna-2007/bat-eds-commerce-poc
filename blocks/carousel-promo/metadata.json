@@ -1,0 +1,40 @@
+{
+  "variantName": "carousel-promo",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-09-08T10:10:17.964Z",
+  "sourceContext": {
+    "originUrl": "https://www.velo.com/hr/hr",
+    "originPage": "VELO Croatia homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero-promo-banner",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + overlaid heading text per slide",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners",
+      "promotional rotating banners",
+      "campaign slideshows"
+    ],
+    "notSuitableFor": [
+      "single static banner",
+      "text-only content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/hr/hr"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-08T10:10:17.964Z"
+  }
+}
