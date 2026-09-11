@@ -18,7 +18,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
   gap: var(--spacing-medium);
 }
 
@@ -64,7 +64,7 @@
 .cards.promo .cards-card-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 1280 / 632; /* source teaser image ~2:1 */
+  aspect-ratio: 3 / 4; /* source vertical-teaser images ~600×800px portrait */
   object-fit: cover;
 }
 
@@ -138,7 +138,7 @@
 
 @media (min-width: 900px) {
   .cards.promo > ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .cards.promo .cards-card-body {
