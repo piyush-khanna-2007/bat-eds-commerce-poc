@@ -18,17 +18,28 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-medium);
 }
 
 .cards > ul > li {
-  border: var(--shape-border-width-1) solid var(--color-neutral-500);
-  background-color: var(--background-color);
+  border: 0;
+  background-color: var(--brand-background-color, #fff);
+  overflow: hidden;
 }
 
 .cards .cards-card-body {
   margin: var(--spacing-small);
+}
+
+.cards .cards-card-body h2 {
+  margin: 0 0 var(--spacing-xsmall);
+  font-family: var(--brand-heading-font-family);
+  font-weight: var(--brand-font-weight-bold);
+  font-size: var(--brand-heading-font-size-xl);
+  line-height: var(--brand-heading-line-height-xl);
+  color: var(--brand-heading-color-alt);
+  text-transform: uppercase;
 }
 
 .cards .cards-card-image {
@@ -37,8 +48,14 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+@media (min-width: 600px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ============================================================
@@ -64,17 +81,18 @@
 .cards.promo .cards-card-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4; /* source vertical-teaser images ~600×800px portrait */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-/* overlaid content: absolute top-left, white text (text-color--light) */
+/* overlaid content: absolute bottom-left, white text (text-color--light) */
 .cards.promo .cards-card-body {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-end;
   margin: 0;
   padding: 20px;
   color: var(--brand-text-inverted, #fff);
@@ -88,6 +106,8 @@
   font-weight: var(--brand-font-weight-bold);
   text-transform: uppercase;
   color: var(--brand-text-inverted, #fff);
+  text-align: left;
+  padding-left: 0;
 }
 
 /* multiple stacked <h2> lines read as one heading */
@@ -98,6 +118,8 @@
 /* CTA: authored link styled as the source pill button (white pill, dark text) */
 .cards.promo .cards-card-body p {
   margin: 24px 0 0;
+  text-align: left;
+  padding-left: 0;
 }
 
 .cards.promo .cards-card-body p a:any-link {
