@@ -1,0 +1,78 @@
+/* =========================================================================
+   Theme: vuse-it
+   Static baseline for the Vuse Italy theme. This is the layer-3 fallback
+   (see EDS Theme System docs) — the theme-variables sheet at
+   /theme-variables/vuse-it layers on top of this at runtime and is the
+   day-to-day editable source; this file is what's used if that sheet is
+   unreachable or a specific row hasn't been added yet.
+   ========================================================================= */
+:root {
+  /* -----------------------------------------------------------------------
+     Typography: Button
+     ----------------------------------------------------------------------- */
+  --typography-button-family: 'Helvetica Neue', Arial, sans-serif;
+  --typography-button-weight: 700;
+  --typography-button-text-transform: uppercase;
+  --typography-button-letter-spacing: 0.03em;
+  --typography-button-size-mobile: 0.8125rem;
+  --typography-button-size-tablet: 0.875rem;
+  --typography-button-size-desktop: 0.875rem;
+  --typography-button-line-height-mobile: 1.25rem;
+  --typography-button-line-height-tablet: 1.25rem;
+  --typography-button-line-height-desktop: 1.25rem;
+
+  /* -----------------------------------------------------------------------
+     Layout: Component Button — full pill regardless of button height
+     ----------------------------------------------------------------------- */
+  --layout-button-border-width: 2px;
+  --layout-button-primary-border-radius: 999px;
+  --layout-button-secondary-border-radius: 999px;
+  --layout-button-disabled-border-radius: 999px;
+
+  /* -----------------------------------------------------------------------
+     Color: Component Button
+     ----------------------------------------------------------------------- */
+  --color-button-primary-bg: #F0A73B;
+  --color-button-primary-bg-hover: #D9922B;
+  --color-button-primary-bg-inverted: #ffffff;
+  --color-button-primary-bg-hover-inverted: #F0A73B;
+  --color-button-primary-text: #171A1C;
+  --color-button-primary-text-hover: #171A1C;
+  --color-button-primary-text-inverted: #171A1C;
+  --color-button-primary-text-hover-inverted: #171A1C;
+  --color-button-primary-border: #F0A73B;
+  --color-button-primary-border-hover: #D9922B;
+  --color-button-primary-border-inverted: #ffffff;
+  --color-button-primary-border-hover-inverted: #F0A73B;
+
+  --color-button-secondary-bg: transparent;
+  --color-button-secondary-bg-hover: transparent;
+  --color-button-secondary-bg-inverted: transparent;
+  --color-button-secondary-bg-hover-inverted: transparent;
+  --color-button-secondary-text: #F0A73B;
+  --color-button-secondary-text-hover: #171A1C;
+  --color-button-secondary-text-inverted: #ffffff;
+  --color-button-secondary-text-hover-inverted: #F0A73B;
+  --color-button-secondary-border: #F0A73B;
+  --color-button-secondary-border-hover: #D9922B;
+  --color-button-secondary-border-inverted: #ffffff;
+  --color-button-secondary-border-hover-inverted: #F0A73B;
+
+  --color-button-link-text: #F0A73B;
+  --color-button-link-text-hover: #D9922B;
+  --color-button-link-text-inverted: #ffffff;
+  --color-button-link-text-hover-inverted: #F0A73B;
+
+  --color-button-disabled-bg: #e9ecf0;
+  --color-button-disabled-bg-hover: #e9ecf0;
+  --color-button-disabled-bg-inverted: #8f9296;
+  --color-button-disabled-bg-hover-inverted: #8f9296;
+  --color-button-disabled-text: #5d5f63;
+  --color-button-disabled-text-hover: #5d5f63;
+  --color-button-disabled-text-inverted: #ffffff;
+  --color-button-disabled-text-hover-inverted: #ffffff;
+  --color-button-disabled-border: #e9ecf0;
+  --color-button-disabled-border-hover: #e9ecf0;
+  --color-button-disabled-border-inverted: #8f9296;
+  --color-button-disabled-border-hover-inverted: #8f9296;
+}
