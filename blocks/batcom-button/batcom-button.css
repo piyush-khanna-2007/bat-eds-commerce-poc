@@ -8,23 +8,25 @@
 [data-block-name="batcom-button"] {
   display: flex;
   align-items: center;
-  font-family: var(--typography-button-family, 'Helvetica Neue', Arial, sans-serif);
-  font-weight: var(--typography-button-weight, 600);
-  font-size: var(--typography-button-size-mobile, 0.875rem);
-  line-height: var(--typography-button-line-height-mobile, 1.25rem);
+  font-family: var(--typography-button-family, 'Helvetica Neue', Arial, sans-serif) !important;
+  font-weight: var(--typography-button-weight, 600) !important;
+  text-transform: var(--typography-button-text-transform, none) !important;
+  letter-spacing: var(--typography-button-letter-spacing, normal) !important;
+  font-size: var(--typography-button-size-mobile, 0.875rem) !important;
+  line-height: var(--typography-button-line-height-mobile, 1.25rem) !important;
 }
 
 @media (min-width: 600px) {
   [data-block-name="batcom-button"] {
-    font-size: var(--typography-button-size-tablet, 0.9375rem);
-    line-height: var(--typography-button-line-height-tablet, 1.25rem);
+    font-size: var(--typography-button-size-tablet, 0.9375rem) !important;
+    line-height: var(--typography-button-line-height-tablet, 1.25rem) !important;
   }
 }
 
 @media (min-width: 900px) {
   [data-block-name="batcom-button"] {
-    font-size: var(--typography-button-size-desktop, 1rem);
-    line-height: var(--typography-button-line-height-desktop, 1.25rem);
+    font-size: var(--typography-button-size-desktop, 1rem) !important;
+    line-height: var(--typography-button-line-height-desktop, 1.25rem) !important;
   }
 }
 
