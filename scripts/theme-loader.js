@@ -113,7 +113,11 @@ function loadThemeStylesheet(theme) {
 }
 
 function applyGroupedRow(prefix, value) {
-  value.split('\n').forEach((line) => {
+  // Split on real newlines OR semicolons — da.live's sheet cell editor does
+  // not reliably preserve embedded line breaks on paste, so semicolons are
+  // the safer delimiter going forward. Both are supported so existing rows
+  // keep working regardless of which one they ended up with.
+  value.split(/[\n;]/).forEach((line) => {
     const trimmed = line.trim();
     if (!trimmed) return;
     const separatorIndex = trimmed.indexOf(':');
@@ -132,14 +136,20 @@ async function applyThemeVariableOverrides(theme) {
     if (!res.ok) return; // sheet doesn't exist for this theme yet — fine, static CSS covers it
     const json = await res.json();
     const rows = json.data || [];
-    rows.forEach(({ property, value }) => {
+    rows.forEach((row) => {
+      // Sheet column headers may be "Property"/"Value" (capitalized, as
+      // typed in da.live) or "property"/"value" (legacy lowercase) —
+      // accept either so this doesn't silently no-op on a header-case
+      // mismatch again.
+      const property = row.property ?? row.Property;
+      const value = row.value ?? row.Value;
       if (!property || value === undefined || value === '') return;
-      const prefix = CATEGORY_PREFIX_MAP[property.trim()];
+      const prefix = CATEGORY_PREFIX_MAP[String(property).trim()];
       if (prefix) {
         applyGroupedRow(prefix, String(value));
       } else {
         // Legacy flat format: property is already the full token name
-        document.documentElement.style.setProperty(`--${property.trim()}`, String(value).trim());
+        document.documentElement.style.setProperty(`--${String(property).trim()}`, String(value).trim());
       }
     });
   } catch {
