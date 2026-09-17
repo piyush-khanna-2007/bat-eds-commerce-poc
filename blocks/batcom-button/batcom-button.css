@@ -196,15 +196,14 @@
 }
 
 /* -----------------------------------------------------------------------
-   Rewards footer link — compact, muted underline treatment.
-   Uses palette tokens directly since there's no dedicated "Color:
-   Component Rewards" category in the source config for this specific
-   footer-link treatment; dark-grey/charcoal are the closest documented
-   equivalents (same pairing used for Color: Social Media icon/title).
+   Rewards footer link — compact, underline treatment. Uses its own
+   dedicated color token (--color-button-rewards-text) rather than
+   piggybacking on palette tokens, so each theme controls this
+   independently instead of inheriting whatever the default theme sets.
    ----------------------------------------------------------------------- */
 [data-block-name="batcom-button"] .button.button-rewards-footer-link {
   background-color: transparent !important;
-  color: var(--color-palette-dark-grey, #5d5f63) !important;
+  color: var(--color-button-rewards-text, #5d5f63) !important;
   border: none !important;
   padding: 4px 0 !important;
   border-radius: 0 !important;
@@ -215,6 +214,6 @@
 }
 
 [data-block-name="batcom-button"] .button.button-rewards-footer-link:hover {
-  color: var(--color-palette-charcoal, #2b2b2b) !important;
+  color: var(--color-button-rewards-text-hover, #2b2b2b) !important;
   background-color: transparent !important;
 }
