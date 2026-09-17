@@ -23,10 +23,12 @@
 
   /* --- Typography: Button (a.k.a. "anchor" in the AEM config) ---------- */
   --typography-button-family: 'Helvetica Neue', Arial, sans-serif;
-  --typography-button-weight: 600;
-  --typography-button-size-mobile: 0.875rem;
-  --typography-button-size-tablet: 0.9375rem;
-  --typography-button-size-desktop: 1rem;
+  --typography-button-weight: 700;
+  --typography-button-text-transform: uppercase;
+  --typography-button-letter-spacing: 0.02em;
+  --typography-button-size-mobile: 0.8125rem;
+  --typography-button-size-tablet: 0.875rem;
+  --typography-button-size-desktop: 0.875rem;
   --typography-button-line-height-mobile: 1.25rem;
   --typography-button-line-height-tablet: 1.25rem;
   --typography-button-line-height-desktop: 1.25rem;
@@ -49,48 +51,51 @@
   --color-body-text: #2b2b2b;
   --color-body-text-inverted: #ffffff;
 
-  /* --- Color: Component Button ------------------------------------------ */
-  --color-button-primary-bg: #1473e6;
-  --color-button-primary-bg-hover: #0d66d0;
-  --color-button-primary-bg-inverted: #ffffff;
-  --color-button-primary-bg-hover-inverted: #f0f0f0;
-  --color-button-primary-text: #ffffff;
+  /* --- Color: Component Button — outline treatment, navy primary -------- */
+  --color-button-primary-bg: transparent;
+  --color-button-primary-bg-hover: #1E3A8A;
+  --color-button-primary-bg-inverted: transparent;
+  --color-button-primary-bg-hover-inverted: #ffffff;
+  --color-button-primary-text: #1E3A8A;
   --color-button-primary-text-hover: #ffffff;
-  --color-button-primary-text-inverted: #1473e6;
-  --color-button-primary-text-hover-inverted: #0d66d0;
-  --color-button-primary-border: #1473e6;
-  --color-button-primary-border-hover: #0d66d0;
+  --color-button-primary-text-inverted: #ffffff;
+  --color-button-primary-text-hover-inverted: #1E3A8A;
+  --color-button-primary-border: #1E3A8A;
+  --color-button-primary-border-hover: #1E3A8A;
   --color-button-primary-border-inverted: #ffffff;
-  --color-button-primary-border-hover-inverted: #f0f0f0;
+  --color-button-primary-border-hover-inverted: #ffffff;
 
-  --color-button-secondary-bg: #eeeeee;
-  --color-button-secondary-bg-hover: #dddddd;
+  --color-button-secondary-bg: transparent;
+  --color-button-secondary-bg-hover: #6D28D9;
   --color-button-secondary-bg-inverted: transparent;
-  --color-button-secondary-bg-hover-inverted: rgba(255, 255, 255, 0.15);
-  --color-button-secondary-text: #222222;
-  --color-button-secondary-text-hover: #222222;
+  --color-button-secondary-bg-hover-inverted: #ffffff;
+  --color-button-secondary-text: #6D28D9;
+  --color-button-secondary-text-hover: #ffffff;
   --color-button-secondary-text-inverted: #ffffff;
-  --color-button-secondary-text-hover-inverted: #ffffff;
-  --color-button-secondary-border: #cccccc;
-  --color-button-secondary-border-hover: #bbbbbb;
+  --color-button-secondary-text-hover-inverted: #6D28D9;
+  --color-button-secondary-border: #6D28D9;
+  --color-button-secondary-border-hover: #6D28D9;
   --color-button-secondary-border-inverted: #ffffff;
   --color-button-secondary-border-hover-inverted: #ffffff;
 
-  --color-button-link-text: #1473e6;
-  --color-button-link-text-hover: #0d66d0;
+  --color-button-link-text: #1E3A8A;
+  --color-button-link-text-hover: #6D28D9;
   --color-button-link-text-inverted: #ffffff;
   --color-button-link-text-hover-inverted: #f0f0f0;
 
-  --color-button-disabled-bg: #f2f2f2;
-  --color-button-disabled-bg-hover: #f2f2f2;
+  --color-button-rewards-text: #6D28D9;
+  --color-button-rewards-text-hover: #4C1D95;
+
+  --color-button-disabled-bg: #eceef1;
+  --color-button-disabled-bg-hover: #eceef1;
   --color-button-disabled-bg-inverted: #666666;
   --color-button-disabled-bg-hover-inverted: #666666;
-  --color-button-disabled-text: #999999;
-  --color-button-disabled-text-hover: #999999;
+  --color-button-disabled-text: #9a9ea3;
+  --color-button-disabled-text-hover: #9a9ea3;
   --color-button-disabled-text-inverted: #cccccc;
   --color-button-disabled-text-hover-inverted: #cccccc;
-  --color-button-disabled-border: #dddddd;
-  --color-button-disabled-border-hover: #dddddd;
+  --color-button-disabled-border: #eceef1;
+  --color-button-disabled-border-hover: #eceef1;
   --color-button-disabled-border-inverted: #666666;
   --color-button-disabled-border-hover-inverted: #666666;
 
@@ -109,8 +114,8 @@
   --color-agegate-button-secondary-border-hover: #ffffff;
 
   /* --- Layout: Component Button ------------------------------------------ */
-  --layout-button-border-width: 1px;
-  --layout-button-primary-border-radius: 4px;
-  --layout-button-secondary-border-radius: 4px;
-  --layout-button-disabled-border-radius: 4px;
+  --layout-button-border-width: 2px;
+  --layout-button-primary-border-radius: 999px;
+  --layout-button-secondary-border-radius: 999px;
+  --layout-button-disabled-border-radius: 999px;
 }
