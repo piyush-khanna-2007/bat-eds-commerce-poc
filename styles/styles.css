@@ -205,7 +205,6 @@ h6 {
 h1 {
   font-size: var(--brand-heading-font-size-xxl);
   line-height: var(--brand-heading-line-height-xxl);
-  text-decoration: underline;  
 }
 
 h2 {
