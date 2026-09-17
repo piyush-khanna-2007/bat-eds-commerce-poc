@@ -11,6 +11,9 @@
  */
 
 /* stylelint-disable no-empty-source */
+
+@import url('/styles/theme-tokens.css');
+
 :root, .dropin-design {
   /* Adobe Commerce Dropin design tokens */
   --color-brand-300: #6d6d6d;
