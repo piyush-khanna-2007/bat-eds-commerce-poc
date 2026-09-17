@@ -116,6 +116,6 @@
   /* --- Layout: Component Button ------------------------------------------ */
   --layout-button-border-width: 2px;
   --layout-button-primary-border-radius: 999px;
-  --layout-button-secondary-border-radius: 999px;
+  --layout-button-secondary-border-radius: 10px;
   --layout-button-disabled-border-radius: 999px;
 }
