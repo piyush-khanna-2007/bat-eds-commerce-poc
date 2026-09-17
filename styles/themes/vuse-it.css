@@ -75,4 +75,11 @@
   --color-button-disabled-border-hover: #e9ecf0;
   --color-button-disabled-border-inverted: #8f9296;
   --color-button-disabled-border-hover-inverted: #8f9296;
+
+  /* -----------------------------------------------------------------------
+     Rewards footer link — explicit override so this theme doesn't
+     inherit the default theme's accent color for this element.
+     ----------------------------------------------------------------------- */
+  --color-button-rewards-text: #F0A73B;
+  --color-button-rewards-text-hover: #D9922B;
 }
