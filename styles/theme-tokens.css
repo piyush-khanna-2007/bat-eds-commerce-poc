@@ -24,7 +24,7 @@
   /* --- Typography: Button (a.k.a. "anchor" in the AEM config) ---------- */
   --typography-button-family: 'Helvetica Neue', Arial, sans-serif;
   --typography-button-weight: 700;
-  --typography-button-text-transform: uppercase;
+  --typography-button-text-transform: none;
   --typography-button-letter-spacing: 0.02em;
   --typography-button-size-mobile: 0.8125rem;
   --typography-button-size-tablet: 0.875rem;
