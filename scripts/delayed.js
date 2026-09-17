@@ -60,10 +60,35 @@ async function initAnalytics() {
   }
 }
 
+function loadAdobeLaunch() {
+  try {
+    const launchEnabled = getConfigValue('launchEnabled');
+    const launchScript = getConfigValue('launchScript');
+
+    if (launchEnabled !== 'true' || !launchScript) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = launchScript;
+    script.async = true;
+
+    document.head.appendChild(script);
+
+    console.log('Adobe Launch loaded');
+  } catch (error) {
+    console.warn('Failed to load Adobe Launch', error);
+  }
+}
+
 if (document.prerendering) {
-  document.addEventListener('prerenderingchange', initAnalytics, { once: true });
+  document.addEventListener('prerenderingchange', () => {
+    initAnalytics();
+    loadAdobeLaunch();
+  }, { once: true });
 } else {
   initAnalytics();
+  loadAdobeLaunch();
 }
 
 // add delayed functionality here
