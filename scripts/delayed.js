@@ -65,9 +65,16 @@ function loadAdobeLaunch() {
     const launchEnabled = getConfigValue('launchEnabled');
     const launchScript = getConfigValue('launchScript');
 
-    if (launchEnabled !== 'true' || !launchScript) {
+    if (
+  launchEnabled !== true &&
+  launchEnabled !== 'true'
+    ) {
       return;
     }
+
+if (!launchScript) {
+  return;
+}
 
     const script = document.createElement('script');
     script.src = launchScript;
