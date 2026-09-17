@@ -169,6 +169,13 @@
   --color-agegate-button-secondary-text-hover: #FFF200;
   --color-agegate-button-secondary-border: #FFF200;
   --color-agegate-button-secondary-border-hover: #FFF200;
+
+  /* -----------------------------------------------------------------------
+     Rewards footer link — explicit override so this theme doesn't
+     inherit the default theme's accent color for this element.
+     ----------------------------------------------------------------------- */
+  --color-button-rewards-text: #5d5f63;
+  --color-button-rewards-text-hover: #2b2b2b;
   --color-agegate-button-secondary-icon: #FFF200;
   --color-agegate-button-secondary-icon-hover: #FFF200;
 
