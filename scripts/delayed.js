@@ -65,19 +65,43 @@ function loadAdobeLaunch() {
     const launchEnabled = getConfigValue('launchEnabled');
     const launchScript = getConfigValue('launchScript');
 
-  if (!launchEnabled || !launchScript) {
-  return;
-  }
+    console.log('Adobe Launch config:', {
+      launchEnabled,
+      launchScript,
+    });
+
+    const isEnabled = String(launchEnabled).toLowerCase() === 'true';
+
+    if (!isEnabled || !launchScript) {
+      console.warn('Adobe Launch is disabled or the script URL is missing');
+      return;
+    }
+
+    if (document.querySelector(`script[src="${launchScript}"]`)) {
+      console.log('Adobe Launch script already exists');
+      return;
+    }
 
     const script = document.createElement('script');
     script.src = launchScript;
     script.async = true;
 
+    script.addEventListener('load', () => {
+      console.log('Adobe Launch script downloaded successfully');
+    });
+
+    script.addEventListener('error', () => {
+      console.error(
+        'Adobe Launch script could not be downloaded:',
+        launchScript,
+      );
+    });
+
     document.head.appendChild(script);
 
-    console.log('Adobe Launch loaded');
+    console.log('Adobe Launch script appended:', launchScript);
   } catch (error) {
-    console.warn('Failed to load Adobe Launch', error);
+    console.warn('Failed to initialize Adobe Launch', error);
   }
 }
 
