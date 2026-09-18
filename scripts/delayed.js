@@ -1,6 +1,7 @@
 import { getConfigValue } from '@dropins/tools/lib/aem/configs.js';
 import { getUserTokenCookie } from './initializers/index.js';
 import { getConsent } from './commerce.js';
+import { getMetadata } from './aem.js';
 
 async function initAnalytics() {
   try {
@@ -62,46 +63,52 @@ async function initAnalytics() {
 
 function loadAdobeLaunch() {
   try {
-    const launchEnabled = getConfigValue('launchEnabled');
-    const launchScript = getConfigValue('launchScript');
+    const launchEnabled = getMetadata('launch-enabled');
+    const launchScript = getMetadata('launch-script');
 
-    console.log('Adobe Launch config:', {
+    console.log('Adobe Launch metadata:', {
       launchEnabled,
       launchScript,
     });
 
-    const isEnabled = String(launchEnabled).toLowerCase() === 'true';
+    const isEnabled =
+      String(launchEnabled).toLowerCase() === 'true';
 
     if (!isEnabled || !launchScript) {
-      console.warn('Adobe Launch is disabled or the script URL is missing');
+      console.warn(
+        'Adobe Launch is disabled or the script URL is missing',
+      );
       return;
     }
 
     if (document.querySelector(`script[src="${launchScript}"]`)) {
-      console.log('Adobe Launch script already exists');
       return;
     }
 
     const script = document.createElement('script');
+
     script.src = launchScript;
     script.async = true;
 
     script.addEventListener('load', () => {
-      console.log('Adobe Launch script downloaded successfully');
+      console.log('Adobe Launch loaded successfully');
     });
 
     script.addEventListener('error', () => {
       console.error(
-        'Adobe Launch script could not be downloaded:',
+        'Adobe Launch failed to load:',
         launchScript,
       );
     });
 
     document.head.appendChild(script);
 
-    console.log('Adobe Launch script appended:', launchScript);
+    console.log('Adobe Launch script appended');
   } catch (error) {
-    console.warn('Failed to initialize Adobe Launch', error);
+    console.warn(
+      'Failed to initialize Adobe Launch',
+      error,
+    );
   }
 }
 
