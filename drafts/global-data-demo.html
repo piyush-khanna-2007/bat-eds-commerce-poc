@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Global Data Assembler - Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header></header>
+<main>
+  <div>
+    <h1>Global Data Assembler</h1>
+    <p>
+      This block fetches spreadsheet data authored in <strong>da.live</strong> and assembles
+      it into the complete <code>ro.json</code> global-data structure — enabling content
+      authors to manage data without developer involvement or da.live sheet-type errors.
+    </p>
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Author</strong> creates one spreadsheet per page in da.live under <code>/global-data/ro/</code></li>
+      <li><strong>Each row</strong> in the spreadsheet = one entry in <code>globalDataMap['global-data']</code></li>
+      <li><strong>A manifest</strong> spreadsheet (<code>pages.json</code>) lists all page names</li>
+      <li><strong>This block</strong> fetches the manifest + all page sheets in parallel and assembles the nested JSON</li>
+      <li>Result is stored in <code>window.globalData</code> for other blocks to consume</li>
+    </ol>
+  </div>
+  <div>
+    <div class="global-data-assembler">
+      <div>
+        <div>site-name</div>
+        <div>ro</div>
+      </div>
+      <div>
+        <div>language</div>
+        <div>ro</div>
+      </div>
+      <div>
+        <div>base-path</div>
+        <div>/global-data/ro</div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer></footer>
+</body>
+</html>

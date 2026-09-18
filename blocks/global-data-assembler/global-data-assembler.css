@@ -1,0 +1,90 @@
+.global-data-assembler {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-family: var(--body-font-family, sans-serif);
+}
+
+.global-data-assembler .global-data-assembler-status {
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+.global-data-assembler .global-data-assembler-output .global-data-assembler-summary {
+  color: #198754;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.global-data-assembler .global-data-assembler-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.global-data-assembler .global-data-assembler-table th,
+.global-data-assembler .global-data-assembler-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: top;
+}
+
+.global-data-assembler .global-data-assembler-table thead th {
+  background-color: #e9ecef;
+  font-weight: 600;
+  color: #495057;
+}
+
+.global-data-assembler .global-data-assembler-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.global-data-assembler .global-data-assembler-output details {
+  margin-top: 0.5rem;
+}
+
+.global-data-assembler .global-data-assembler-output details summary {
+  cursor: pointer;
+  color: #0d6efd;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.global-data-assembler .global-data-assembler-output details summary:hover {
+  text-decoration: underline;
+}
+
+.global-data-assembler .global-data-assembler-output pre {
+  background: #212529;
+  color: #f8f9fa;
+  padding: 1.25rem;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 60vh;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  tab-size: 2;
+  margin: 0;
+}
+
+.global-data-assembler .global-data-assembler-error {
+  color: #dc3545;
+  font-weight: 500;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .global-data-assembler .global-data-assembler-table {
+    font-size: 0.75rem;
+  }
+
+  .global-data-assembler .global-data-assembler-table th,
+  .global-data-assembler .global-data-assembler-table td {
+    padding: 0.375rem 0.5rem;
+  }
+}

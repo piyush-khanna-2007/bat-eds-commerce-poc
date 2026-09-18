@@ -1,0 +1,24 @@
+{
+  ":type": "sheet",
+  "total": 2,
+  "offset": 0,
+  "limit": 256,
+  "data": [
+    {
+      "id": "VAULT_RESTORE_HEADER",
+      "title": "The Vault",
+      "text": "Dispozitivul tău a fost resetat la setările din fabrică.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/vault-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/vault-mobile.jpg",
+      "ctaLabel": "CONTINUĂ"
+    },
+    {
+      "id": "VAULT_RESTORE_TITLE",
+      "title": "Resetare completă",
+      "text": "Toate datele personale au fost șterse de pe dispozitiv.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/reset-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/reset-mobile.jpg",
+      "ctaLabel": "AM ÎNȚELES"
+    }
+  ]
+}

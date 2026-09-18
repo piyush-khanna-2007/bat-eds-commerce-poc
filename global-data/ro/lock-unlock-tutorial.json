@@ -1,0 +1,32 @@
+{
+  ":type": "sheet",
+  "total": 3,
+  "offset": 0,
+  "limit": 256,
+  "data": [
+    {
+      "id": "LOCK_STEP_1",
+      "title": "Blochează dispozitivul",
+      "text": "Apasă butonul lateral pentru a bloca dispozitivul.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/lock-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/lock-mobile.jpg",
+      "ctaLabel": "URMĂTOR"
+    },
+    {
+      "id": "LOCK_STEP_2",
+      "title": "Deblochează dispozitivul",
+      "text": "Apasă butonul lateral și glisează în sus pentru a debloca.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/unlock-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/unlock-mobile.jpg",
+      "ctaLabel": "URMĂTOR"
+    },
+    {
+      "id": "LOCK_STEP_3",
+      "title": "Ai terminat!",
+      "text": "Dispozitivul tău este acum configurat corect.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/done-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/done-mobile.jpg",
+      "ctaLabel": "FINALIZEAZĂ"
+    }
+  ]
+}

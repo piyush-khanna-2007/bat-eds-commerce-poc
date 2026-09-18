@@ -1,0 +1,32 @@
+{
+  ":type": "sheet",
+  "total": 3,
+  "offset": 0,
+  "limit": 256,
+  "data": [
+    {
+      "id": "PAIRING_INTRO",
+      "title": "Asociază un dispozitiv nou",
+      "text": "Activează Bluetooth-ul și apropie dispozitivul de telefon.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/pair-intro-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/pair-intro-mobile.jpg",
+      "ctaLabel": "ÎNCEPE"
+    },
+    {
+      "id": "PAIRING_SCAN",
+      "title": "Scanare în curs",
+      "text": "Aplicația caută dispozitive compatibile în apropierea ta.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/pair-scan-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/pair-scan-mobile.jpg",
+      "ctaLabel": "URMĂTOR"
+    },
+    {
+      "id": "PAIRING_SUCCESS",
+      "title": "Dispozitiv asociat cu succes!",
+      "text": "Dispozitivul tău a fost asociat și este gata de utilizare.",
+      "desktop": "/content/dam/sputnik/vuse/ro/images/pair-success-desktop.jpg",
+      "mobile": "/content/dam/sputnik/vuse/ro/images/pair-success-mobile.jpg",
+      "ctaLabel": "CONTINUĂ"
+    }
+  ]
+}

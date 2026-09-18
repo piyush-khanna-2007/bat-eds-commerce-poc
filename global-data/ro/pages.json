@@ -1,0 +1,11 @@
+{
+  ":type": "sheet",
+  "total": 3,
+  "offset": 0,
+  "limit": 256,
+  "data": [
+    { "pageName": "vault-after", "wrapperId": "globalactivationwrap", "hasGlobalWrapperComponent": "true" },
+    { "pageName": "lock-unlock-tutorial", "wrapperId": "globalactivationwrap", "hasGlobalWrapperComponent": "true" },
+    { "pageName": "pairing-new", "wrapperId": "globalactivationwrap", "hasGlobalWrapperComponent": "true" }
+  ]
+}
