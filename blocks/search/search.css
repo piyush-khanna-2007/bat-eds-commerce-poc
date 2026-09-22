@@ -1,0 +1,115 @@
+/*
+ * search block — displays query-index.json content in a filterable table,
+ * styled after the AEM "Site Query" admin tool.
+ */
+
+.search {
+  font-family: var(--body-font-family, sans-serif);
+}
+
+/* ---- Search bar ---- */
+.search .search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.search .search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--color-neutral-400, #d6d6d6);
+  border-radius: 4px;
+}
+
+.search .search-input:focus {
+  outline: 2px solid var(--link-color, #3b63fb);
+  outline-offset: 1px;
+}
+
+.search .search-submit {
+  flex: 0 0 auto;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--link-color, #3b63fb);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search .search-submit:hover {
+  background-color: var(--link-hover-color, #1d3ecf);
+}
+
+/* ---- Status line ---- */
+.search .search-status {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--color-neutral-700, #666);
+}
+
+/* ---- Results table ---- */
+.search .search-results {
+  overflow-x: auto;
+  border: 1px solid var(--color-neutral-300, #e8e8e8);
+  border-radius: 4px;
+}
+
+.search table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.search thead th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+  color: var(--color-neutral-800, #3d3d3d);
+  background-color: var(--color-neutral-100, #fafafa);
+  border-bottom: 2px solid var(--color-neutral-300, #e8e8e8);
+  white-space: nowrap;
+}
+
+.search tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-neutral-200, #f5f5f5);
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.search tbody tr:hover {
+  background-color: var(--color-neutral-100, #fafafa);
+}
+
+.search tbody td[data-column="path"] a {
+  color: var(--link-color, #3b63fb);
+  text-decoration: none;
+}
+
+.search tbody td[data-column="path"] a:hover {
+  text-decoration: underline;
+}
+
+.search tbody td[data-column="image"] img {
+  width: 80px;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+}
+
+.search tbody td[data-column="lastModified"] {
+  white-space: nowrap;
+  color: var(--color-neutral-700, #666);
+}
+
+.search .search-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--color-neutral-700, #666);
+}
