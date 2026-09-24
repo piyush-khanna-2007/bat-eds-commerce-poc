@@ -80,6 +80,10 @@
 
   /* ---- Layout ---- */
   --brand-content-max-width: 1377px;
+
+  /* ---- PLP ---- */
+  --brand-plp-stock-in-color: #068475;
+  --brand-plp-stock-out-color: #991f39;
 }
 
 @media (min-width: 900px) {

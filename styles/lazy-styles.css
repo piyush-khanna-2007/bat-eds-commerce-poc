@@ -1,1 +1,32 @@
 /* add global styles that can be loaded post LCP here */
+
+/* Generic dropin overrides */
+
+.dropin-design .dropin-button,
+.dropin-design .dropin-iconButton {
+  padding: var(--brand-button-padding);
+  border-radius: var(--brand-button-border-radius);
+}
+
+button.dropin-button[class*="dropin-button--"],
+a.dropin-button[class*="dropin-button--"] {
+  border-width: var(--brand-button-border-width);
+  border-style: solid;
+}
+
+button.dropin-button.dropin-button--primary,
+a.dropin-button.dropin-button--primary {
+  border-color: var(--brand-button-primary-border);
+  background-color: var(--brand-button-primary-bg);
+  background-clip: border-box; /* ensures the background color respects the border */
+  color: var(--brand-button-primary-text);
+}
+
+button.dropin-button.dropin-button--primary:hover,
+button.dropin-button.dropin-button--primary:focus-visible,
+a.dropin-button.dropin-button--primary:hover,
+a.dropin-button.dropin-button--primary:focus-visible {
+  border-color: var(--brand-button-primary-border-hover);
+  background-color: var(--brand-button-primary-bg-hover);
+  color: var(--brand-button-primary-text-hover);
+}

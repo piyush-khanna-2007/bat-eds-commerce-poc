@@ -1,3 +1,9 @@
+.block.product-list-page {
+    --plp-grid-gap: var(--spacing-small);
+    --plp-swatch-size: 24px;
+    /* Wrapper reserves room for the selected outline (offset 2px + 1px, each side). */
+    --plp-swatch-wrapper-size: calc(var(--plp-swatch-size) + 6px);
+}
 
 .block.product-list-page .search__wrapper {
     display: grid;
@@ -22,6 +28,7 @@
 }
 
 .block.product-list-page .search__view-facets {
+    display: none;
     grid-area: view-facets;
     margin-block-end: var(--spacing-small);
 }
@@ -75,10 +82,248 @@
     margin-block-end: var(--spacing-small);
 }
 
-.block.product-list-page .product-discovery-product-actions {
+/* Product grid — 1/2/4 columns, following the AEM grid PLP.
+ *
+ * The dropin ships its own 1/2/3/4 steps as container queries on the grid, but
+ * the grid is narrowed by the facets rail, so its thresholds never line up with
+ * the viewport. These media queries win on specificity instead.
+ */
+.block.product-list-page .product-discovery-product-list__grid {
+    gap: var(--plp-grid-gap);
+}
+
+/* Product card */
+
+.block.product-list-page .dropin-product-item-card {
+    background-color: var(--brand-background-color);
+    border: 1px solid var(--brand-border-color);
+    width: auto;
+    margin: unset;
+    padding: 0;
+}
+
+.block.product-list-page .dropin-product-item-card__image img {
+    display: block;
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 100%;
+}
+
+/* Flatten the dropin's 2-column content grid into a single stacked column. */
+.block.product-list-page .dropin-product-item-card__content {
     display: flex;
-    flex-direction: row;
-    gap: var(--spacing-xxsmall);
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+    align-items: flex-start;
+    padding: var(--spacing-small);
+}
+
+.block.product-list-page .dropin-product-item-card__action {
+    margin-block-start: auto;
+}
+
+.block.product-list-page .plp-card__image-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--color-neutral-200);
+}
+
+.block.product-list-page .plp-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.block.product-list-page .plp-card__name {
+    color: var(--brand-text-color);
+    font-family: var(--brand-body-font-family);
+    font-size: var(--brand-body-font-size);
+    line-height: var(--brand-body-line-height);
+    font-weight: var(--brand-font-weight-medium);
+    text-decoration: none;
+}
+
+/* Colour swatches — complex products only. */
+.block.product-list-page .plp-card__colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xsmall);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.block.product-list-page .plp-card__colors li {
+    width: var(--plp-swatch-wrapper-size);
+    aspect-ratio: 1;
+}
+
+.block.product-list-page .plp-card__color {
+    box-sizing: border-box;
+    width: var(--plp-swatch-size);
+    aspect-ratio: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+
+    /* Hairline keeps light swatches visible against the white card. */
+    border: 1px solid rgb(0 0 0 / 20%);
+    background-color: var(--plp-swatch-color);
+}
+
+.block.product-list-page .plp-card__color--out-of-stock {
+    opacity: 0.4;
+}
+
+.block.product-list-page .plp-card__color--selected,
+.block.product-list-page .plp-card__color:focus-visible {
+    outline: 1px solid rgb(0 0 0);
+    outline-offset: 2px;
+}
+
+.block.product-list-page .plp-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xsmall);
+}
+
+.block.product-list-page .plp-card__buy-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--spacing-xsmall);
+}
+
+/* Out of stock: only the status text remains, matching the AEM PLP. */
+.block.product-list-page .plp-card__buy-row--hidden {
+    display: none;
+}
+
+/* Centers the incrementer within the card; it has no width of its own. */
+.block.product-list-page .plp-card__quantity {
+    flex: 1 1 calc(50% - 0.5 * var(--spacing-xsmall));
+}
+
+.block.product-list-page .plp-card__quantity .dropin-incrementer__content {
+    box-sizing: border-box;
+    grid-template-columns: var(--spacing-xbig) auto var(--spacing-xbig);
+    border-radius: 20px;
+}
+
+.block.product-list-page .plp-card__quantity .dropin-incrementer__input {
+    padding: 0;
+}
+
+.block.product-list-page .plp-card__quantity .dropin-incrementer__button-container {
+    background: none;
+}
+
+.block.product-list-page .plp-card__add-to-cart {
+    --brand-button-padding: 10px var(--spacing-xsmall);
+
+    flex: 1 1 calc(50% - 0.5 * var(--spacing-xsmall));
+}
+
+.block.product-list-page .plp-card__stock {
+    margin: 0;
+    font-family: var(--brand-body-font-family);
+    font-weight: var(--brand-font-weight-bold);
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.block.product-list-page .plp-card__stock--in {
+    color: var(--brand-plp-stock-in-color);
+}
+
+.block.product-list-page .plp-card__stock--out {
+    color: var(--brand-plp-stock-out-color);
+}
+
+/* Announces add-to-cart progress for screen readers; not shown visually. */
+.block.product-list-page .plp-card__add-to-cart-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Complex products render an anchor to the PDP instead of a button, so both
+ * element types need the same treatment. Anchors are content-box by default,
+ * which would add the button padding on top of the full width. */
+.block.product-list-page .plp-card__add-to-cart button.dropin-button.dropin-button--primary,
+.block.product-list-page .plp-card__add-to-cart a.dropin-button.dropin-button--primary {
+    box-sizing: border-box;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+@keyframes plp-add-to-cart-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes plp-add-to-cart-success-in {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+}
+
+/* Matches the AEM PLP's buy button: the label and icon blur, and a spinner
+ * (loading) or checkmark (success) overlay is shown on top — as a sibling
+ * element rather than the button's own icon, so the real icon/label are
+ * never removed and the button's box size never changes. */
+.block.product-list-page .plp-card__add-to-cart--loading .dropin-button,
+.block.product-list-page .plp-card__add-to-cart--success .dropin-button {
+    position: relative;
+}
+
+.block.product-list-page .plp-card__add-to-cart--loading .dropin-button > *,
+.block.product-list-page .plp-card__add-to-cart--success .dropin-button > *:not(.plp-card__add-to-cart-success-icon) {
+    filter: blur(2px);
+}
+
+.block.product-list-page .plp-card__add-to-cart--loading .dropin-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: currentcolor;
+    border-radius: 50%;
+    animation: plp-add-to-cart-spin 0.8s linear infinite;
+}
+
+.block.product-list-page .plp-card__add-to-cart-success-icon {
+    display: none;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.block.product-list-page .plp-card__add-to-cart--success .plp-card__add-to-cart-success-icon {
+    display: block;
+    animation: plp-add-to-cart-success-in 0.25s ease-out;
+}
+
+/* Skeleton — square image and an extra buy-row block, matching the card layout. */
+.block.product-list-page .dropin-product-item-card__skeleton__image {
+    height: unset;
+    aspect-ratio: 1;
 }
 
 /* Empty State */
@@ -98,12 +343,27 @@
 }
 
 /* Media Queries */
+@media only screen and (max-width: 767px) {
+    .block.product-list-page .dropin-product-item-card {
+        grid-template-columns: 114px 1fr;
+        gap: var(--spacing-xsmall); 
+    }
+}
+
 @media only screen and (min-width: 768px) {
+    .block.product-list-page {
+        --plp-grid-gap: var(--spacing-medium);
+    }
+
+    .block.product-list-page .product-discovery-product-list__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .block.product-list-page .search__wrapper {
         grid-template-areas:
             "result-info product-sort"
-            "facets product-list"
-            ". pagination";
+            "product-list product-list"
+            "pagination pagination";
         grid-template-columns: 270px 1fr;
     }
 
@@ -112,12 +372,26 @@
     }
 
     .block.product-list-page .search__facets {
-        display: unset;
+        /* display: unset; */
         margin-right: var(--spacing-small);
+    }
+
+    .block.product-list-page .dropin-product-item-card {
+        grid-template-rows: auto 1fr;
     }
 
     .block.product-list-page .search__product-sort {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .block.product-list-page .plp-card__buy-row {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .block.product-list-page .product-discovery-product-list__grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
