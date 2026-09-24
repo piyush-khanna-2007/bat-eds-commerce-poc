@@ -445,6 +445,34 @@ export default async function decorate(block) {
     updateCardVariant(parentSku, selection.product);
   };
 
+  // Activation costs one `variants()` request per complex product — the query
+  // takes a single sku, so it cannot be batched the way swatches are. Running
+  // it for the whole page on load put N serialized requests behind the search
+  // and swatch calls, so it is deferred until a card nears the viewport.
+  const variantObserver = new IntersectionObserver((entries, observer) => {
+    entries.filter((entry) => entry.isIntersecting).forEach((entry) => {
+      observer.unobserve(entry.target);
+      activateFirstInStockVariant(entry.target.dataset.sku);
+    });
+  }, { rootMargin: '200px' });
+
+  /**
+   * Queues a card for variant activation once it nears the viewport.
+   * @param {string} parentSku - SKU of the card's parent complex product
+   */
+  const scheduleVariantActivation = (parentSku) => {
+    const { actionsEl, observedEl } = getCardState(parentSku);
+    if (!actionsEl || actionsEl === observedEl) return;
+
+    // Pagination re-renders cards, so drop the detached element this sku was
+    // previously observed on rather than leaving it held by the observer.
+    if (observedEl) variantObserver.unobserve(observedEl);
+
+    actionsEl.dataset.sku = parentSku;
+    setCardState(parentSku, { observedEl: actionsEl });
+    variantObserver.observe(actionsEl);
+  };
+
   await Promise.all([
     // Sort By
     provider.render(SortBy, {})($productSort),
@@ -583,7 +611,7 @@ export default async function decorate(block) {
           // swatches already resolved from a prior visit; the search/result
           // handler below only activates on first resolution, so re-trigger it
           // here against this fresh element instead of the stale one it saw.
-          if (getCardState(product.sku).swatches) activateFirstInStockVariant(product.sku);
+          if (getCardState(product.sku).swatches) scheduleVariantActivation(product.sku);
         },
       },
     })($productList),
@@ -638,6 +666,6 @@ export default async function decorate(block) {
       }
     });
 
-    await Promise.all(complexSkus.map((sku) => activateFirstInStockVariant(sku)));
+    complexSkus.forEach((sku) => scheduleVariantActivation(sku));
   }, { eager: true });
 }

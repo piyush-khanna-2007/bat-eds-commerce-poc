@@ -3,8 +3,9 @@
  *
  * Catalog Service has no equivalent of AEM's inline `variants { product { ... } }`
  * on the list query — `variants` only exists as a root query taking a single sku
- * (see `swatches.js` for the same constraint on colour data). Each complex
- * product's variants are fetched lazily, on first swatch interaction, and cached.
+ * (see `swatches.js` for the same constraint on colour data). Because it cannot
+ * be batched, each complex product's variants are fetched once its card nears
+ * the viewport (or on swatch click, whichever comes first) and cached.
  */
 import { fetchGraphQl } from '@dropins/storefront-product-discovery/api.js';
 
