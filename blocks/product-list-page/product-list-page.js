@@ -7,6 +7,7 @@ import { render as provider } from '@dropins/storefront-product-discovery/render
 import {
   Button, Icon, Incrementer, Price, provider as UI,
 } from '@dropins/tools/components.js';
+import { generateSrcset } from '@dropins/tools/lib.js';
 import { search } from '@dropins/storefront-product-discovery/api.js';
 // Cart Dropin
 import * as cartApi from '@dropins/storefront-cart/api.js';
@@ -286,10 +287,18 @@ export default async function decorate(block) {
 
     const imageEl = state.imageWrapper?.querySelector('img');
     if (imageEl && variant.images?.[0]?.url) {
-      // srcset takes precedence over src; clear it or the browser keeps the old variant's image.
-      imageEl.removeAttribute('srcset');
-      imageEl.src = variant.images[0].url;
-      imageEl.alt = variant.images[0].label || variant.name || variant.sku;
+      // The dropin leaves `src` unoptimized and serves the resized/webp
+      // candidates from `srcset`, so the variant's srcset has to be rebuilt the
+      // same way — dropping it would render the raw full-size original.
+      // Width only, as the dropin does: pinning height too makes `fit=cover`
+      // crop the source, and the per-candidate widths would scale against a
+      // fixed height. The card CSS handles the square aspect ratio.
+      const { url, label } = variant.images[0];
+      const srcset = generateSrcset(url, { width: IMAGE_WIDTH });
+      imageEl.src = url;
+      if (srcset) imageEl.srcset = srcset;
+      else imageEl.removeAttribute('srcset');
+      imageEl.alt = label || variant.name || variant.sku;
     }
 
     const amount = variant.price?.final?.amount;
