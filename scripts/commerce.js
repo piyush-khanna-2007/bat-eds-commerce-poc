@@ -563,7 +563,11 @@ export async function fetchPlaceholders(path) {
  * @returns {Promise<Object>} - The config JSON from session storage
  */
 export async function getConfigFromSession() {
-  const configURL = `${window.location.origin}/config.json`;
+  var configURL = `${window.location.origin}/config.json`;
+
+  if(window.location.search.indexOf("endpoint=aemshop") > -1) {
+    configURL = `${window.location.origin}/demo-config.json`;
+  }
 
   try {
     const configJSON = window.sessionStorage.getItem('config');
